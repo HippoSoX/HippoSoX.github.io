@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="BEVFormer: Learning Bird’s-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers       本文链接: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2203.17270 代码仓库: https:&#x2F;&#x2F;github.com&#x2F;fundamental">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[看论文]BEVFormer: Learning Bird&#39;s-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers">
+<meta property="og:url" content="http://example.com/2022/10/03/BEVFormer/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="BEVFormer: Learning Bird’s-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers       本文链接: https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2203.17270 代码仓库: https:&#x2F;&#x2F;github.com&#x2F;fundamental">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/BEVFormer_01.png">
+<meta property="og:image" content="http://example.com/BEVFormer_02.png">
+<meta property="article:published_time" content="2022-10-03T06:33:52.000Z">
+<meta property="article:modified_time" content="2023-01-03T10:23:06.860Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/BEVFormer_01.png"><title>[看论文]BEVFormer: Learning Bird's-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers | Hexo</title><link ref="canonical" href="http://example.com/2022/10/03/BEVFormer/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"Copy","copySuccess":"Copy Success","copyError":"Copy Error"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">Home</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">Archives</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Hello Stun</div><div class="header-banner-info__subtitle">An elegant theme for Hexo</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">[看论文]BEVFormer: Learning Bird's-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">Created</span><span class="post-meta-item__value">2022-10-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">Updated</span><span class="post-meta-item__value">2023-01-03</span></span></div></header><div class="post-body">
+        <h1 id="BEVFormer-Learning-Bird’s-Eye-View-Representation-from-Multi-Camera-Images-via-Spatiotemporal-Transformers"   >
+          <a href="#BEVFormer-Learning-Bird’s-Eye-View-Representation-from-Multi-Camera-Images-via-Spatiotemporal-Transformers" class="heading-link"><i class="fas fa-link"></i></a><a href="#BEVFormer-Learning-Bird’s-Eye-View-Representation-from-Multi-Camera-Images-via-Spatiotemporal-Transformers" class="headerlink" title="BEVFormer: Learning Bird’s-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers"></a>BEVFormer: Learning Bird’s-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers</h1>
+      <p>本文链接: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://arxiv.org/abs/2203.17270" >https://arxiv.org/abs/2203.17270</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>代码仓库: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/fundamentalvision/BEVFormer" >https://github.com/fundamentalvision/BEVFormer</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><img src="/BEVFormer_01.png" alt="BEVFormer"></p>
+<p>图1：我们提出了BEVFormer，这是一种自动驾驶的范例，它应用Transformer和Temporal结构从多摄像机输入中生成鸟瞰（BEV）特征。BEVFormer利用查询来查找空间&#x2F;时间空间，并相应地聚合时空信息，从而有利于感知任务的更强表示。</p>
+<span id="more"></span>
+
+
+        <h2 id="Abstract-摘要"   >
+          <a href="#Abstract-摘要" class="heading-link"><i class="fas fa-link"></i></a><a href="#Abstract-摘要" class="headerlink" title="Abstract 摘要"></a>Abstract 摘要</h2>
+      <p>三维视觉感知任务，包括基于多摄像机图像的三维检测和地图分割，对于自动驾驶系统至关重要。在这项工作中，我们提出了一个称为BEVFormer的新框架，它学习具有<strong>时空变换器</strong>的<strong>统一BEV表示</strong>，以支持多个自主驾驶感知任务。简而言之，BEVFormer通过预定义的<strong>网格状BEV查询</strong>与空间和时间空间交互，利用空间和时间信息。为了聚合空间信息，我们设计了<strong>空间交叉注意力机制</strong>，即每个BEV查询跨摄像机视图从感兴趣区域提取空间特征。对于时间信息，我们提出了<strong>时间自注意力机制</strong>来循环融合历史BEV信息。就nuScenes测试集的NDS指标而言，我们的方法达到了最新的56.9%，比以前的最佳技术高出9.0点，与基于激光雷达的基线性能相当。我们进一步表明，BEVFormer显著提高了低能见度条件下速度估计和物体召回的准确性。该代码可在以下网址获取：<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://github.com/zhiqi-li/BEVFormer" >https://github.com/zhiqi-li/BEVFormer</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>.</p>
+
+        <h2 id="Introduction-介绍"   >
+          <a href="#Introduction-介绍" class="heading-link"><i class="fas fa-link"></i></a><a href="#Introduction-介绍" class="headerlink" title="Introduction 介绍"></a>Introduction 介绍</h2>
+      <p>3D空间中的感知对于自动驾驶、机器人等各种应用至关重要。尽管基于激光雷达的方法取得了显著进展，但基于摄像机的方法近年来已引起广泛关注。除了部署成本低之外，与基于激光雷达的同类产品相比，摄像机在探测远距离物体和识别基于视觉的道路要素（如交通灯、停车线）方面具有理想的优势。</p>
+<p>在自动驾驶过程中，对周围场景的视觉感知预计会根据多个摄像头提供的2D提示预测3D边界框或语义图。最直接的解决方案是基于单目框架和跨相机后处理。该框架的缺点是，它单独处理不同的视图，无法跨摄像头捕获信息，导致性能和效率低下。</p>
+<p>作为单目框架的替代方案，更统一的框架是从多摄像机图像中提取整体表示。鸟瞰图（BEV）是一种常用的周围场景表示，因为它清楚地显示了物体的位置和比例，并且适用于各种自主驾驶任务，例如感知和规划。尽管以前的地图分割方法证明了BEV的有效性，但基于BEV的方法在三维物体检测方面并没有表现出明显的优势。其根本原因是，三维物体检测任务需要强大的BEV特征来支持精确的三维边界框预测，但从二维平面生成BEV是不适定的。生成BEV特征的流行BEV框架基于深度信息，但此范式对深度值或深度分布的准确性敏感。因此，基于BEV的方法的检测性能会受到复合误差的影响，不准确的BEV特征会严重影响最终性能。因此，我们有动机设计一种不依赖深度信息的BEV生成方法，它可以自适应地学习BEV特征，而不是严格依赖3D先验知识。Transformer使用注意机制动态聚合有价值的特性，从概念上满足了我们的需求。</p>
+<p>为此，我们提出了一种基于Transformer的鸟瞰（BEV）编码器，称为BEVFormer，它可以有效地从多视角相机和历史BEV特征中聚集时空特征。由BEVFormer生成的BEV特征可以同时支持多个3D感知任务，如3D物体检测和地图分割，这对于自动驾驶系统很有价值。如图1所示，我们的BEVFormer包含三个关键设计，分别是（1）<strong>网格状BEV查询</strong>，通过注意机制灵活融合空间和时间特征；（2）<strong>空间交叉注意模块</strong>，从多摄像机图像中聚集空间特征；（3）<strong>时间自注意模块</strong>，通过历史BEV特征提取时间信息，这有利于运动对象的速度估计和严重遮挡对象的检测，同时带来的计算开销可以忽略不计。利用BEVFormer生成的统一特征，该模型可以与不同的任务特定头（如可变形DETR和掩码解码器）协作，实现端到端的三维对象检测和地图分割。</p>
+<p>我们的主要贡献如下:</p>
+<ul>
+<li><p>我们提出了BEVFormer，一种时空变换编码器，它将多摄像机和&#x2F;或时间戳输入投影到BEV表示。利用统一的BEV特征，我们的模型可以同时支持多个自主驾驶感知任务，包括3D检测和地图分割。</p>
+</li>
+<li><p>我们设计了可学习BEV查询以及空间交叉关注层和时间自我关注层，分别从交叉摄像机和历史BEV中查找空间特征和时间特征，然后将它们聚合为统一的BEV特征。 </p>
+</li>
+<li><p>我们根据多个具有挑战性的基准（包括nuScenes和Waymo）评估拟议的BEVFormer。与现有技术相比，我们的BEVFormer始终实现了更好的性能。例如，在可比较的参数和计算开销下，BEVFormer在nuScenes测试集上达到56.9%的NDS，比以前的最佳检测方法DETR3D高9.0个百分点（56.9%比47.9%）。对于地图分割任务，我们还实现了最先进的性能，在最具挑战性的车道分割上比Lift Splat高出5.0点以上。我们希望这个简单而有力的框架可以作为后续3D感知任务的新基线。</p>
+</li>
+</ul>
+<p><img src="/BEVFormer_02.png"></p>
+<p>图2:BEVFormer的总体架构。（a）BEVFormer的编码器层包含<strong>网格状BEV查询</strong>、<strong>时间自我注意</strong>和<strong>空间交叉注意</strong>。（b）在<strong>空间交叉注意</strong>中，每个BEV查询只与感兴趣区域中的图像特征进行交互。（c）在<strong>时间自我关注</strong>中，每个BEV查询都与两个特征交互：当前时间戳的BEV查询和前一时间戳的PEV特征。</p>
+
+        <h2 id="BEVFormer"   >
+          <a href="#BEVFormer" class="heading-link"><i class="fas fa-link"></i></a><a href="#BEVFormer" class="headerlink" title="BEVFormer"></a>BEVFormer</h2>
+      <p>将多摄像头图像特征转换为鸟瞰（BEV）特征可以为各种自动驾驶感知任务提供统一的周围环境表示。在这项工作中，我们提出了一种新的基于变压器的BEV生成框架，该框架可以通过注意机制有效地聚合多视角摄像机的时空特征和历史BEV特征。</p>
+
+        <h3 id="Overall-Architecture-总体架构"   >
+          <a href="#Overall-Architecture-总体架构" class="heading-link"><i class="fas fa-link"></i></a><a href="#Overall-Architecture-总体架构" class="headerlink" title="Overall Architecture 总体架构"></a>Overall Architecture 总体架构</h3>
+      <p>如图2所示，BEVFormer有6个编码器层，每个编码器层都遵循Transformer的传统结构，除了三个定制的设计，即BEV查询、空间交叉注意和时间自我注意。具体来说，BEV查询是网格状的可学习参数，它旨在通过注意力机制从多个摄像头视图中查询BEV空间中的特征。空间交叉注意力和时间自注意力是与BEV查询一起工作的注意层，根据BEV查询，这些注意层用于查找和聚合多摄像机图像的空间特征以及历史BEV的时间特征。</p>
+<p>在推理过程中，在时间戳t处，我们将多个摄像机图像反馈送到主干网络（例如，ResNet-101），并获得不同摄像机视图的特征$F_t&#x3D; \lbrace F^i_t \rbrace^{N_{view}}<em>{i&#x3D;1}$，其中$F^i_t$是第i个视图的特征，$N</em>{view}$是摄像机视图的总数。同时，我们保留了在前一时间戳t−1处的BEV的特征$B_{t-1}$。在每个编码器层中，我们首先使用BEV查询Q来查询来自之前BEV特征$B_{t-1}$的时间信息通过时间自注意力机制。然后，我们使用BEV查询Q通过空间交叉注意从多摄像机特征$F_t$查询空间信息。在前馈网络之后，编码器层输出优化的BEV特征，这是下一个编码器层的输入。在6个堆叠编码器层之后，生成当前时间戳t的统一BEV特征$B_t$。以BEV特征$B_t$为输入，3D检测头和地图分割头预测3D边界框和语义图等感知结果。</p>
+
+        <h3 id="BEV-Queries-BEV查询"   >
+          <a href="#BEV-Queries-BEV查询" class="heading-link"><i class="fas fa-link"></i></a><a href="#BEV-Queries-BEV查询" class="headerlink" title="BEV Queries BEV查询"></a>BEV Queries BEV查询</h3>
+      <p>我们预定义了一组网格形状的可学习参数$Q \in R ^{H \times W \times C}$作为BEV Former的查询，其中H、W是BEV平面的空间形状。具体来说，查询$Q_p \in R ^{1 \times C}$位于Q的$p&#x3D;(x,y)$处的负责BEV平面中相应的网格单元区域。BEV平面中的每个网格单元对应于s米的实际大小。BEV功能的中心默认与小汽车的位置相对应。按照常见实践，我们在将BEV查询输入到BEVFormer之前，将可学习的位置嵌入添加到BEV查询Q中。</p>
+
+        <h3 id="Spatial-Cross-Attention-空间交叉注意力"   >
+          <a href="#Spatial-Cross-Attention-空间交叉注意力" class="heading-link"><i class="fas fa-link"></i></a><a href="#Spatial-Cross-Attention-空间交叉注意力" class="headerlink" title="Spatial Cross-Attention 空间交叉注意力"></a>Spatial Cross-Attention 空间交叉注意力</h3>
+      <p>由于多摄像机3D感知的输入规模较大（包含$N_{view}$摄像机视图），香草型(vanilla)多头部注意力的计算成本极高。因此，我们开发了基于可变形注意的空间交叉注意，这是一个资源高效的注意层，其中每个BEV查询Qp仅与摄像机视图中的感兴趣区域交互。然而，变形注意力最初是为2D感知而设计的，因此需要对3D场景进行一些调整。</p>
+<p>如图2（b）所示，我们首先将BEV平面上的每个查询提升为柱状查询，从柱中采样Nref 3D参考点，然后将这些点投影到2D视图。对于一个BEV查询，投影的二维点只能落在某些视图上，而其他视图不会被命中。在这里，我们将hit视图称为Vhit。然后，我们将这些2D点作为查询Qp的参考点，并从这些参考点周围的命中视图Vhit中采样特征。最后，我们将采样特征的加权和作为空间交叉注意的输出。空间交叉注意（SCA）的过程可以表述为：</p>
+<p>$$<br>SCA(Q_p,F_t)&#x3D;\frac {1}{|V_{hit}|} \displaystyle \sum_{i \in V_{hit}} \sum_{j&#x3D;1}^{N_{ref}} DeformAttn(Q_p,P(p,i,j).F_t^i)<br>$$</p>
+<p>其中，i索引相机视图，j索引参考点，Nref是每个BEV查询的总参考点。F i t是第i个摄像头视图的功能。对于每个BEV查询Qp，我们使用项目函数P（P，i，j）来获取第i个视图图像上的第j个参考点。</p>
+<p>接下来，我们介绍如何从投影函数P获取视图图像上的参考点。我们首先计算位于Q的P&#x3D;（x，y）处的查询Qp对应的真实世界位置（x′，y′），作为等式3.</p>
+<p>$$<br>x’&#x3D;(x-\frac{W}{2})\times s; y’&#x3D;(y-\frac{H}{2}\times s)<br>$$</p>
+<p>其中，H、W是BEV查询的空间形状，s是BEV网格的分辨率大小，$(x′，y′)$是自我车位置为原点的坐标。在三维空间中，位于（x′，y′）的对象将显示在z轴上z′的高度。因此，我们预定义了一组锚定高度$\lbrace z′j \rbrace ^{N_{ref}}<em>{j&#x3D;1}$，以确保我们能够捕获出现在不同高度的线索。这样，对于每个查询Qp，我们都会得到一个3D参考点柱$(x′，y′，z′_j)^{N</em>{ref}}_{j&#x3D;1}$。最后，我们通过相机的投影矩阵将3D参考点投影到不同的图像视图，可以写为</p>
+<p>$$<br>P(p,i,j)&#x3D;(x_{ij},y_{ij})<br>where z_{ij}\cdot [x_{ij} y_{ij} 1]^T &#x3D; T_i\cdot [x’ y’ z’_j 1]^T<br>$$</p>
+<p>这里，P（P，i，j）是从第j个3D点（x′，y′，z′j）投影的第i个视图上的2D点，Ti∈ R3×4是第i台相机的已知投影矩阵。</p>
+
+        <h2 id="Temporal-Self-Attention-时间自注意力机制"   >
+          <a href="#Temporal-Self-Attention-时间自注意力机制" class="heading-link"><i class="fas fa-link"></i></a><a href="#Temporal-Self-Attention-时间自注意力机制" class="headerlink" title="Temporal Self-Attention 时间自注意力机制"></a>Temporal Self-Attention 时间自注意力机制</h2>
+      <p>除了空间信息外，时间信息对于视觉系统了解周围环境也至关重要。例如，在没有时间线索的情况下，从静态图像中推断移动对象的速度或检测高度遮挡的对象是很困难的。为了解决这个问题，我们设计了时间自我注意，它可以通过结合历史BEV特征来表示当前环境。</p>
+<p>给定BEV查询Q在当前时间戳t和历史BEV特征Bt−时间戳t处保留1−1，我们首先对齐Bt−根据自我运动1到Q，使同一网格中的特征对应于同一真实世界位置。这里，我们表示对齐的BEV历史特征Bt−1作为B’t−1.然而，从时间t开始− 从1到t，可移动对象在现实世界中以各种偏移移动。在不同时期的BEV特征之间构建相同对象的精确关联是一个挑战。因此，我们通过时间自我注意（TSA）层对特征之间的时间连接进行建模，可以写为：</p>
+<p>$$<br>TSA(Q_p,{Q,B’<em>{t-1}})&#x3D;\displaystyle \sum</em>{V\in {Q, b’_{t-1}}} DeformAttn(Q_p, p, V)<br>$$</p>
+<p>其中Qp表示位于p&#x3D;（x，y）的BEV查询。此外，与香草变形注意力不同，偏移$\delta _p$通过Q和$B′t$的串联预测时间自我注意中的p−1.特别地，对于每个序列的第一个样本，时间自我注意将退化为没有时间信息的自我注意，其中我们替换了BEV特征{Q，B′t−1} 使用重复的BEV查询{Q，Q}。</p>
+<p>与其他文章中简单叠加BEV相比，我们的时间自我注意可以更有效地建模长期依赖关系。BEVFormer从以前的BEV特征中提取时间信息，而不是多个叠加BEV特征，因此需要更少的计算成本和更少的干扰信息。</p>
+
+        <h2 id="Applications-of-BEV-Features-BEV特征的应用"   >
+          <a href="#Applications-of-BEV-Features-BEV特征的应用" class="heading-link"><i class="fas fa-link"></i></a><a href="#Applications-of-BEV-Features-BEV特征的应用" class="headerlink" title="Applications of BEV Features BEV特征的应用"></a>Applications of BEV Features BEV特征的应用</h2>
+      <p>由于BEV的特点是Bt∈ RH×W×C是一种通用的2D特征地图，可用于各种自动驾驶感知任务，3D物体检测和地图分割任务头可基于2D感知方法开发，只需稍作修改。</p>
+<p>对于3D物体检测，我们设计了一个基于2D探测器可变形DETR的端到端3D检测头。修改包括使用单尺度BEV特征Bt作为解码器的输入，预测3D边界框和速度，而不是2D边界框，并且仅使用L1损失来监督3D边界框回归。有了检测头，我们的模型可以端到端预测3D边界框和速度，而无需NMS后处理。</p>
+<p>对于地图分割，我们设计了一个基于二维分割方法Panoptic SegFormer的地图分割头。由于基于BEV的地图分割与常见的语义分割基本相同，我们使用掩码解码器和类固定查询来针对每个语义类别，包括汽车、车辆、道路（可行驶区域）和车道。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ END ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">Author: </span><span class="copyright-author__value"><a href="http://example.com">John Doe</a></span></div><div class="copyright-link"><span class="copyright-link__name">Link: </span><span class="copyright-link__value"><a href="http://example.com/2022/10/03/BEVFormer/">http://example.com/2022/10/03/BEVFormer/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">Copyright: </span><span class="copyright-notice__value">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> unless stating additionally</span></div></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2022/10/04/Transformer/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">[看论文]Transformer: Attention Is All You Need</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2022/10/02/BEVDet/"><span class="paginator-prev__text">[看论文]BEVDet: High-Performance Multi-Camera 3D Object Detection in Bird-Eye-View</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">Catalog</span><span class="sidebar-nav-ov">Overview</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#BEVFormer-Learning-Bird%E2%80%99s-Eye-View-Representation-from-Multi-Camera-Images-via-Spatiotemporal-Transformers"><span class="toc-number">1.</span> <span class="toc-text">
+          BEVFormer: Learning Bird’s-Eye-View Representation from Multi-Camera Images via Spatiotemporal Transformers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract-%E6%91%98%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">
+          Abstract 摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">
+          Introduction 介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BEVFormer"><span class="toc-number">1.3.</span> <span class="toc-text">
+          BEVFormer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Overall-Architecture-%E6%80%BB%E4%BD%93%E6%9E%B6%E6%9E%84"><span class="toc-number">1.3.1.</span> <span class="toc-text">
+          Overall Architecture 总体架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BEV-Queries-BEV%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.3.2.</span> <span class="toc-text">
+          BEV Queries BEV查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spatial-Cross-Attention-%E7%A9%BA%E9%97%B4%E4%BA%A4%E5%8F%89%E6%B3%A8%E6%84%8F%E5%8A%9B"><span class="toc-number">1.3.3.</span> <span class="toc-text">
+          Spatial Cross-Attention 空间交叉注意力</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Temporal-Self-Attention-%E6%97%B6%E9%97%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6"><span class="toc-number">1.4.</span> <span class="toc-text">
+          Temporal Self-Attention 时间自注意力机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Applications-of-BEV-Features-BEV%E7%89%B9%E5%BE%81%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">1.5.</span> <span class="toc-text">
+          Applications of BEV Features BEV特征的应用</span></a></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">Hello Stun</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">5</div><div class="sidebar-ov-state-item__name">Archives</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="Creative Commons" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">You have read </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>John Doe</span></div><div><span>Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a></span><span> v5.4.2</span><span class="footer__devider">|</span><span>Theme - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.8.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
