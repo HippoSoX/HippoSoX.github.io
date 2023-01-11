@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="Using Xacro to Clean Up a URDF File 使用Xacro清理URDF文件         原文链接: https:&#x2F;&#x2F;wiki.ros.org&#x2F;urdf&#x2F;Tutorials&#x2F;Using Xacro to Clean Up a URDF File  Description: Learn some tricks to reduce the amou">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【urdf_tutorials】Using Xacro to Clean Up a URDF File 使用Xacro清理URDF文件">
+<meta property="og:url" content="http://hipposox.github.io/2023/01/10/urdf-tutorials-03/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Using Xacro to Clean Up a URDF File 使用Xacro清理URDF文件         原文链接: https:&#x2F;&#x2F;wiki.ros.org&#x2F;urdf&#x2F;Tutorials&#x2F;Using Xacro to Clean Up a URDF File  Description: Learn some tricks to reduce the amou">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-10T09:01:50.000Z">
+<meta property="article:modified_time" content="2023-01-10T09:48:40.976Z">
+<meta property="article:author" content="HippoSoX">
+<meta property="article:tag" content="ros">
+<meta property="article:tag" content="URDF">
+<meta property="article:tag" content="Xacro">
+<meta name="twitter:card" content="summary"><title>【urdf_tutorials】Using Xacro to Clean Up a URDF File 使用Xacro清理URDF文件 | Hexo</title><link ref="canonical" href="http://hipposox.github.io/2023/01/10/urdf-tutorials-03/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"dark","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">erocool</div><div class="header-banner-info__subtitle">You know what</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">【urdf_tutorials】Using Xacro to Clean Up a URDF File 使用Xacro清理URDF文件</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-01-10</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-01-10</span></span></div></header><div class="post-body">
+        <h1 id="using-xacro-to-clean-up-a-urdf-file-使用xacro清理urdf文件"   >
+          <a href="#using-xacro-to-clean-up-a-urdf-file-使用xacro清理urdf文件" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#using-xacro-to-clean-up-a-urdf-file-使用xacro清理urdf文件"></a> Using Xacro to Clean Up a URDF File 使用Xacro清理URDF文件</h1>
+      
+<blockquote>
+<p>原文链接: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://wiki.ros.org/urdf/Tutorials/Using%20Xacro%20to%20Clean%20Up%20a%20URDF%20File" >https://wiki.ros.org/urdf/Tutorials/Using Xacro to Clean Up a URDF File</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</blockquote>
+<p>Description: Learn some tricks to reduce the amount of code in a URDF file using Xacro</p>
+<p>描述：学习使用Xacro减少URDF文件中代码量的一些技巧</p>
+<p>Keywords: URDF, Xacro</p>
+<p>关键词：URDF，Xacro</p>
+<p>Tutorial Level: BEGINNER</p>
+<p>教程级别：初学者</p>
+<p>By now, if you’re following all these steps at home with your own robot design, you might be sick of doing all sorts of math to get very simple robot descriptions to parse correctly. Fortunately, you can use the xacro package to make your life simpler. It does three things that are very helpful.</p>
+<p>现在，如果你在家里用自己的机器人设计完成所有这些步骤，你可能会厌倦做各种数学来正确解析非常简单的机器人描述。幸运的是，你可以使用xacro包让你的生活更简单。它做了三件非常有用的事情。</p>
+<ul>
+<li>
+<p>Constants</p>
+</li>
+<li>
+<p>Simple Math</p>
+</li>
+<li>
+<p>Macros</p>
+</li>
+<li>
+<p>常量</p>
+</li>
+<li>
+<p>简单数学</p>
+</li>
+<li>
+<p>宏</p>
+</li>
+</ul>
+<p>In this tutorial, we take a look at all these shortcuts to help reduce the overall size of the URDF file and make it easier to read and maintain.</p>
+<p>在本教程中，我们将查看所有这些快捷方式，以帮助减少URDF文件的总体大小，并使其更易于阅读和维护。</p>
+<span id="more"></span>
+
+        <h2 id="1-using-xacro"   >
+          <a href="#1-using-xacro" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#1-using-xacro"></a> 1 Using Xacro</h2>
+      
+<p>As its name implies, xacro is a macro language for XML. The xacro program runs all of the macros and outputs the result. Typical usage looks something like this:</p>
+<p>顾名思义，xacro是一种用于XML的宏语言。xacro程序运行所有宏并输出结果。典型用法如下：</p>
+<figure class="highlight sh"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xacro --inorder model.xacro &gt; model.urdf </span><br></pre></td></tr></table></div></figure>
+<p>On ROS distros melodic and later, you should omit the {–inorder} argument.</p>
+<p>在ROS发行版molodic和以后的版本中，您应该省略{–inorder}参数。</p>
+<p>You can also automatically generate the urdf in a launch file. This is convenient because it stays up to date and doesn’t use up hard drive space. However, it does take time to generate, so be aware that your launch file might take longer to start up. (I’m looking at you pr2_description)</p>
+<p>您还可以在启动文件中自动生成urdf。这很方便，因为它可以保持最新状态，而且不会占用硬盘空间。但是，生成确实需要时间，因此请注意启动启动文件可能需要更长的时间。（说的就是你pr2_description）</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">&quot;robot_description&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">command</span>=<span class="string">&quot;xacro --inorder &#x27;$(find pr2_description)/robots/pr2.urdf.xacro&#x27;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>At the top of the URDF file, you must specify a namespace in order for the file to parse properly. For example, these are the first two lines of a valid xacro file:</p>
+<p>在URDF文件的顶部，必须指定一个名称空间，以便正确解析文件。例如，以下是有效xacro文件的前两行：</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">robot</span> <span class="attr">xmlns:xacro</span>=<span class="string">&quot;http://www.ros.org/wiki/xacro&quot;</span> <span class="attr">name</span>=<span class="string">&quot;firefighter&quot;</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+
+        <h2 id="2-constants"   >
+          <a href="#2-constants" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#2-constants"></a> 2 Constants</h2>
+      
+<p>Let’s take a quick look at our base_link in R2D2.</p>
+<p>让我们快速查看一下R2D2中的base_link。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">&quot;base_link&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">visual</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">cylinder</span> <span class="attr">length</span>=<span class="string">&quot;0.6&quot;</span> <span class="attr">radius</span>=<span class="string">&quot;0.2&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">material</span> <span class="attr">name</span>=<span class="string">&quot;blue&quot;</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">visual</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">collision</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">cylinder</span> <span class="attr">length</span>=<span class="string">&quot;0.6&quot;</span> <span class="attr">radius</span>=<span class="string">&quot;0.2&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">collision</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>The information here is a little redundant. We specify the length and radius of the cylinder twice. Worse, if we want to change that, we need to do so in two different places.</p>
+<p>这里的信息有点多余。我们指定圆柱体的长度和半径两次。更糟糕的是，如果我们想改变这一点，我们需要在两个不同的地方这样做。</p>
+<p>Fortunately, xacro allows you to specify properties which act as constants. Instead, of the above code, we can write this.</p>
+<p>幸运的是，xacro允许您指定充当常量的属性。相反，我们可以使用上面的代码编写这个。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xacro:property</span> <span class="attr">name</span>=<span class="string">&quot;width&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0.2&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xacro:property</span> <span class="attr">name</span>=<span class="string">&quot;bodylen&quot;</span> <span class="attr">value</span>=<span class="string">&quot;0.6&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">&quot;base_link&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">visual</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">cylinder</span> <span class="attr">radius</span>=<span class="string">&quot;$&#123;width&#125;&quot;</span> <span class="attr">length</span>=<span class="string">&quot;$&#123;bodylen&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">material</span> <span class="attr">name</span>=<span class="string">&quot;blue&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">visual</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">collision</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">cylinder</span> <span class="attr">radius</span>=<span class="string">&quot;$&#123;width&#125;&quot;</span> <span class="attr">length</span>=<span class="string">&quot;$&#123;bodylen&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">collision</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+<ul>
+<li>
+<p>The two values are specified in the first two lines. They can be defined just about anywhere (assuming valid XML), at any level, before or after they are used. Usually they go at the top.</p>
+</li>
+<li>
+<p>Instead of specifying the actual radius in the geometry element, we use a dollar sign and curly brackets to signify the value.</p>
+</li>
+<li>
+<p>This code will generate the same code shown above.</p>
+</li>
+<li>
+<p>这两个值在前两行中指定。它们可以在任何地方（假设有效的XML）、任何级别、使用之前或之后进行定义。通常他们都在顶端。</p>
+</li>
+<li>
+<p>我们使用美元符号和大括号来表示值，而不是在几何元素中指定实际半径。</p>
+</li>
+<li>
+<p>此代码将生成与上面所示相同的代码。</p>
+</li>
+</ul>
+<p>The value of the contents of the ${} construct are then used to replace the ${}. This means you can combine it with other text in the attribute.</p>
+<p>然后使用${}构造的内容值替换${}。这意味着您可以将其与属性中的其他文本组合。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xacro:property</span> <span class="attr">name</span>=<span class="string">”robotname”</span> <span class="attr">value</span>=<span class="string">”marvin”</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">”$&#123;robotname&#125;s_leg”</span> /&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>This will generate</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">”marvins_leg”</span> /&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>However, the contents in the ${} don’t have to only be a property, which brings us to our next point…</p>
+<p>然而，${}中的内容不一定只是一个属性，这就引出了我们的下一点。。。</p>
+
+        <h2 id="3-math"   >
+          <a href="#3-math" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#3-math"></a> 3 Math</h2>
+      
+<p>You can build up arbitrarily complex expressions in the ${} construct using the four basic operations (+,-,*,/), the unary minus, and parenthesis. Examples:</p>
+<p>您可以使用四个基本操作（+、-、*、/）、一元减号和括号在${}构造中构建任意复杂的表达式。示例：</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">cylinder</span> <span class="attr">radius</span>=<span class="string">&quot;$&#123;wheeldiam/2&#125;&quot;</span> <span class="attr">length</span>=<span class="string">&quot;0.1&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">origin</span> <span class="attr">xyz</span>=<span class="string">&quot;$&#123;reflect*(width+.02)&#125; 0 0.25&quot;</span> /&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>All of the math is done using floats, hence</p>
+<p>所有的数学运算都是使用浮点数完成的，因此</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">&quot;$&#123;5/6&#125;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>evaluates to</p>
+<p>计算结果为</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">&quot;0.833333333333&quot;</span>/&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>In Jade and later distros, you can use more than the basic operations listed above, notably sin and cos.</p>
+<p>在Jade和以后的发行版中，您可以使用上面列出的基本操作，特别是sin和cos。</p>
+
+        <h2 id="4-macros"   >
+          <a href="#4-macros" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#4-macros"></a> 4 Macros</h2>
+      
+<p>Here’s the biggest and most useful component to the xacro package.</p>
+<p>这是xacro包中最大、最有用的组件。</p>
+
+        <h3 id="41-simple-macro"   >
+          <a href="#41-simple-macro" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#41-simple-macro"></a> 4.1 Simple Macro</h3>
+      
+<p>Let’s take a look at a simple useless macro.</p>
+<p>让我们来看一个简单的无用宏。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xacro:macro</span> <span class="attr">name</span>=<span class="string">&quot;default_origin&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">origin</span> <span class="attr">xyz</span>=<span class="string">&quot;0 0 0&quot;</span> <span class="attr">rpy</span>=<span class="string">&quot;0 0 0&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xacro:macro</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xacro:default_origin</span>/&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>(This is useless, since if the origin is not specified, it has the same value as this.) This code will generate the following.</p>
+<p>（这是无用的，因为如果未指定原点，它的值与此值相同。）此代码将生成以下内容。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">origin</span> <span class="attr">rpy</span>=<span class="string">&quot;0 0 0&quot;</span> <span class="attr">xyz</span>=<span class="string">&quot;0 0 0&quot;</span>/&gt;</span></span><br></pre></td></tr></table></div></figure>
+<ul>
+<li>
+<p>The name is not technically a required element, but you need to specify it to be able to use it.</p>
+</li>
+<li>
+<p>Every instance of the <span class="exturl"><a class="exturl__link"   href="xacro:$NAME/" >xacro:$NAME/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span> is replaced with the contents of the xacro:macro tag.</p>
+</li>
+<li>
+<p>Note that even though its not exactly the same (the two attributes have switched order), the generated XML is equivalent.</p>
+</li>
+<li>
+<p>If the xacro with a specified name is not found, it will not be expanded and will NOT generate an error.</p>
+</li>
+<li>
+<p>从技术上讲，名称不是必需的元素，但您需要指定它才能使用它。</p>
+</li>
+<li>
+<p><span class="exturl"><a class="exturl__link"   href="xacro:$NAME/" >xacro:$NAME/</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>的每个实例都被xacro:macro标记的内容替换。</p>
+</li>
+<li>
+<p>注意，即使它不完全相同（两个属性的顺序发生了变化），生成的XML也是等效的。</p>
+</li>
+<li>
+<p>如果找不到具有指定名称的xacro，则不会展开它，也不会生成错误。</p>
+</li>
+</ul>
+
+        <h3 id="42-parameterized-macro"   >
+          <a href="#42-parameterized-macro" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#42-parameterized-macro"></a> 4.2 Parameterized Macro</h3>
+      
+<p>You can also parameterize macros so that they don’t generate the same exact text every time. When combined with the math functionality, this is even more powerful.</p>
+<p>您还可以参数化宏，使它们不会每次都生成相同的精确文本。当与数学功能相结合时，这将更加强大。</p>
+<p>First, let’s take an example of a simple macro used in R2D2.</p>
+<p>首先，让我们以R2D2中使用的一个简单宏为例。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xacro:macro</span> <span class="attr">name</span>=<span class="string">&quot;default_inertial&quot;</span> <span class="attr">params</span>=<span class="string">&quot;mass&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">inertial</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mass</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;mass&#125;&quot;</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">inertia</span> <span class="attr">ixx</span>=<span class="string">&quot;1.0&quot;</span> <span class="attr">ixy</span>=<span class="string">&quot;0.0&quot;</span> <span class="attr">ixz</span>=<span class="string">&quot;0.0&quot;</span></span></span><br><span class="line"><span class="tag">                 <span class="attr">iyy</span>=<span class="string">&quot;1.0&quot;</span> <span class="attr">iyz</span>=<span class="string">&quot;0.0&quot;</span></span></span><br><span class="line"><span class="tag">                 <span class="attr">izz</span>=<span class="string">&quot;1.0&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">inertial</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xacro:macro</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>This can be used with the code</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xacro:default_inertial</span> <span class="attr">mass</span>=<span class="string">&quot;10&quot;</span>/&gt;</span></span><br></pre></td></tr></table></div></figure>
+<p>The parameters act just like properties, and you can use them in expressions</p>
+<p>参数的作用与属性类似，您可以在表达式中使用它们</p>
+<p>You can also use entire blocks as parameters too.</p>
+<p>也可以将整个块用作参数。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xacro:macro</span> <span class="attr">name</span>=<span class="string">&quot;blue_shape&quot;</span> <span class="attr">params</span>=<span class="string">&quot;name *shape&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">&quot;$&#123;name&#125;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">visual</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">xacro:insert_block</span> <span class="attr">name</span>=<span class="string">&quot;shape&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">material</span> <span class="attr">name</span>=<span class="string">&quot;blue&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">visual</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">collision</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">xacro:insert_block</span> <span class="attr">name</span>=<span class="string">&quot;shape&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">collision</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xacro:macro</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">xacro:blue_shape</span> <span class="attr">name</span>=<span class="string">&quot;base_link&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">cylinder</span> <span class="attr">radius</span>=<span class="string">&quot;.42&quot;</span> <span class="attr">length</span>=<span class="string">&quot;.01&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xacro:blue_shape</span>&gt;</span></span><br></pre></td></tr></table></div></figure>
+<ul>
+<li>
+<p>To specify a block parameter, include an asterisk before its parameter name.</p>
+</li>
+<li>
+<p>A block can be inserted using the insert_block command</p>
+</li>
+<li>
+<p>Insert the block as many times as you wish.</p>
+</li>
+<li>
+<p>要指定块参数，请在其参数名称前包含星号。</p>
+</li>
+<li>
+<p>可以使用insert_block命令插入块</p>
+</li>
+<li>
+<p>根据需要插入块多次。</p>
+</li>
+</ul>
+
+        <h2 id="5-practical-usage"   >
+          <a href="#5-practical-usage" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#5-practical-usage"></a> 5 Practical Usage</h2>
+      
+<p>The xacro language is rather flexible in what it allows you to do. Here are a few useful ways that xacro is used in the R2D2 model, in addition to the default inertial macro shown above.</p>
+<p>xacro语言在它允许你做的事情上非常灵活。除了上面显示的默认惯性宏之外，以下是一些在R2D2模型中使用xacro的有用方法。</p>
+<p>To see the model generated by a xacro file, run the same command as with previous tutorials: <code>roslaunch urdf_tutorial display.launch model:=urdf/08-macroed.urdf.xacro</code></p>
+<p>要查看xacro文件生成的模型，请运行与前面教程相同的命令：<code>roslaunch urdf_tutorial display.launch model:=urdf/08-macroed.urdf.xacro</code></p>
+<p>(The launch file has been running the xacro command this whole time, but since there were no macros to expand, it didn’t matter)</p>
+<p>（启动文件一直在运行xacro命令，但由于没有可扩展的宏，这无关紧要）</p>
+
+        <h3 id="51-leg-macro"   >
+          <a href="#51-leg-macro" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#51-leg-macro"></a> 5.1 Leg macro</h3>
+      
+<p>Often you want to create multiple similar looking objects in different locations. Often, there will be some symmetry to the locations. You can use a macro and some simple math to reduce the amount of code you have to write, like we do with R2’s two legs.</p>
+<p>通常，您希望在不同位置创建多个外观相似的对象。通常，位置会有一些对称性。你可以使用一个宏和一些简单的数学来减少你必须写的代码量，就像我们用R2的两条腿做的那样。</p>
+<figure class="highlight xml"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">xacro:macro</span> <span class="attr">name</span>=<span class="string">&quot;leg&quot;</span> <span class="attr">params</span>=<span class="string">&quot;prefix reflect&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">name</span>=<span class="string">&quot;$&#123;prefix&#125;_leg&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">visual</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">box</span> <span class="attr">size</span>=<span class="string">&quot;$&#123;leglen&#125; 0.1 0.2&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">origin</span> <span class="attr">xyz</span>=<span class="string">&quot;0 0 -$&#123;leglen/2&#125;&quot;</span> <span class="attr">rpy</span>=<span class="string">&quot;0 $&#123;pi/2&#125; 0&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">material</span> <span class="attr">name</span>=<span class="string">&quot;white&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">visual</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">collision</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">geometry</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">box</span> <span class="attr">size</span>=<span class="string">&quot;$&#123;leglen&#125; 0.1 0.2&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">geometry</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">origin</span> <span class="attr">xyz</span>=<span class="string">&quot;0 0 -$&#123;leglen/2&#125;&quot;</span> <span class="attr">rpy</span>=<span class="string">&quot;0 $&#123;pi/2&#125; 0&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">collision</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">xacro:default_inertial</span> <span class="attr">mass</span>=<span class="string">&quot;10&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">link</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">joint</span> <span class="attr">name</span>=<span class="string">&quot;base_to_$&#123;prefix&#125;_leg&quot;</span> <span class="attr">type</span>=<span class="string">&quot;fixed&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">parent</span> <span class="attr">link</span>=<span class="string">&quot;base_link&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">child</span> <span class="attr">link</span>=<span class="string">&quot;$&#123;prefix&#125;_leg&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">origin</span> <span class="attr">xyz</span>=<span class="string">&quot;0 $&#123;reflect*(width+.02)&#125; 0.25&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">joint</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- A bunch of stuff cut --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">xacro:macro</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xacro:leg</span> <span class="attr">prefix</span>=<span class="string">&quot;right&quot;</span> <span class="attr">reflect</span>=<span class="string">&quot;1&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">xacro:leg</span> <span class="attr">prefix</span>=<span class="string">&quot;left&quot;</span> <span class="attr">reflect</span>=<span class="string">&quot;-1&quot;</span> /&gt;</span></span><br></pre></td></tr></table></div></figure>
+<ul>
+<li>
+<p>Common Trick 1: Use a name prefix to get two similarly named objects.</p>
+</li>
+<li>
+<p>Common Trick 2: Use math to calculate joint origins. In the case that you change the size of your robot, changing a property with some math to calculate the joint offset will save a lot of trouble.</p>
+</li>
+<li>
+<p>Common Trick 3: Using a reflect parameter, and setting it to 1 or -1. See how we use the reflect parameter to put the legs on either side of the body in the base_to_${prefix}_leg origin.</p>
+</li>
+<li>
+<p>常见技巧1：使用名称前缀获取两个名称相似的对象。</p>
+</li>
+<li>
+<p>常见技巧2：使用数学计算关节原点。如果你改变了机器人的大小，用一些数学方法改变一个属性来计算关节偏移会省去很多麻烦。</p>
+</li>
+<li>
+<p>常见技巧3：使用反射参数，并将其设置为1或-1。看看我们如何使用reflect参数将腿放在base_to_${prefix}_leg原点的身体两侧。</p>
+</li>
+</ul>
+
+        <h3 id="52-other-tricks"   >
+          <a href="#52-other-tricks" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#52-other-tricks"></a> 5.2 Other tricks</h3>
+      
+<p>Feel free to append your own tricks here.</p>
+
+        <h3 id="53-next-steps"   >
+          <a href="#53-next-steps" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#53-next-steps"></a> 5.3 Next Steps</h3>
+      
+<p>This concludes this section however if you have completed all these steps you are well prepared to move into simulation. Continue on to Using a URDF in Gazebo</p>
+<p>然而，如果您已经完成了所有这些步骤，那么您就已经做好了进入模拟的准备。继续在Gazebo中使用URDF</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://hipposox.github.io">HippoSoX</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://hipposox.github.io/2023/01/10/urdf-tutorials-03/">http://hipposox.github.io/2023/01/10/urdf-tutorials-03/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://hipposox.github.io/tags/ros/">ros</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://hipposox.github.io/tags/URDF/">URDF</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://hipposox.github.io/tags/Xacro/">Xacro</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/01/10/urdf-tutorials-04/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">【urdf_tutorials】Using a URDF in Gazebo 在Gazebo中使用URDF</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/01/10/urdf-tutorials-02/"><span class="paginator-prev__text">【urdf_tutorials】Building a Movable Robot Model with URDF 用URDF建立移动机器人模型</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#using-xacro-to-clean-up-a-urdf-file-%E4%BD%BF%E7%94%A8xacro%E6%B8%85%E7%90%86urdf%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">
+           Using Xacro to Clean Up a URDF File 使用Xacro清理URDF文件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-using-xacro"><span class="toc-number">1.1.</span> <span class="toc-text">
+           1 Using Xacro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-constants"><span class="toc-number">1.2.</span> <span class="toc-text">
+           2 Constants</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-math"><span class="toc-number">1.3.</span> <span class="toc-text">
+           3 Math</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-macros"><span class="toc-number">1.4.</span> <span class="toc-text">
+           4 Macros</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#41-simple-macro"><span class="toc-number">1.4.1.</span> <span class="toc-text">
+           4.1 Simple Macro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#42-parameterized-macro"><span class="toc-number">1.4.2.</span> <span class="toc-text">
+           4.2 Parameterized Macro</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-practical-usage"><span class="toc-number">1.5.</span> <span class="toc-text">
+           5 Practical Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#51-leg-macro"><span class="toc-number">1.5.1.</span> <span class="toc-text">
+           5.1 Leg macro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52-other-tricks"><span class="toc-number">1.5.2.</span> <span class="toc-text">
+           5.2 Other tricks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#53-next-steps"><span class="toc-number">1.5.3.</span> <span class="toc-text">
+           5.3 Next Steps</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">motto</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">0</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1449790718&auto=1&height=66"></iframe></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>HippoSoX</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v5.4.2</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.8.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
