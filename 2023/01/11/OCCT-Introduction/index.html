@@ -1,0 +1,966 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="原文链接: https:&#x2F;&#x2F;dev.opencascade.org&#x2F;doc&#x2F;overview&#x2F;html&#x2F;index.html#intro_overview_heal                       Open CASCADE Technology        Welcome to Open CASCADE Technology (OCCT), a software developme">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OCCT_Introduction">
+<meta property="og:url" content="http://hipposox.github.io/2023/01/11/OCCT-Introduction/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="原文链接: https:&#x2F;&#x2F;dev.opencascade.org&#x2F;doc&#x2F;overview&#x2F;html&#x2F;index.html#intro_overview_heal                       Open CASCADE Technology        Welcome to Open CASCADE Technology (OCCT), a software developme">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGdxUQ.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGOVJD.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGd3fD.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGdo71.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGd1wo.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGdPBK.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGdqWC.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGdatb.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGdeqS.png">
+<meta property="og:image" content="https://www.helloimg.com/images/2023/01/12/oGdJPt.png">
+<meta property="article:published_time" content="2023-01-11T06:01:42.000Z">
+<meta property="article:modified_time" content="2023-01-12T15:25:58.634Z">
+<meta property="article:author" content="HippoSoX">
+<meta property="article:tag" content="Opencascade">
+<meta property="article:tag" content="OCCT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.helloimg.com/images/2023/01/12/oGdxUQ.png"><title>OCCT_Introduction | Hexo</title><link ref="canonical" href="http://hipposox.github.io/2023/01/11/OCCT-Introduction/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"dark","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">erocool</div><div class="header-banner-info__subtitle">You know what</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">OCCT_Introduction</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-01-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-01-12</span></span></div></header><div class="post-body"><blockquote>
+<p>原文链接: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://dev.opencascade.org/doc/overview/html/index.html#intro_overview_heal" >https://dev.opencascade.org/doc/overview/html/index.html#intro_overview_heal</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</blockquote>
+
+        <h1 id="open-cascade-technology"   >
+          <a href="#open-cascade-technology" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#open-cascade-technology"></a> Open CASCADE Technology</h1>
+      
+<p>Welcome to Open CASCADE Technology (OCCT), a software development platform providing services for 3D surface and solid modeling, CAD data exchange, and visualization. Most of OCCT functionality is available in the form of C++ libraries. OCCT can be best applied in development of software dealing with 3D modeling (CAD), manufacturing / measuring (CAM) or numerical simulation (CAE).</p>
+<p>欢迎使用开放式CASCADE技术（OCCT），这是一个软件开发平台，为三维曲面和实体建模、CAD数据交换和可视化提供服务。OCCT的大部分功能都以C++库的形式提供。OCCT最适用于处理三维建模（CAD）、制造/测量（CAM）或数值模拟（CAE）的软件开发。</p>
+<p><span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.opencascade.com" >https://www.opencascade.com</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGdxUQ">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGdxUQ.png"  alt="Open CASCADE" border="0" />
+      </a></p>
+<span id="more"></span>
+
+        <h2 id="overview-概述"   >
+          <a href="#overview-概述" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#overview-概述"></a> Overview 概述</h2>
+      
+<p>Open CASCADE Technology (OCCT) is an object-oriented C++ class library designed for rapid production of sophisticated domain-specific CAD/CAM/CAE applications.</p>
+<p>Open CASCADE Technology（OCCT）是一个面向对象的C++类库，用于快速生成复杂的特定领域CAD/CAM/CAE应用程序。</p>
+<p>A typical application developed using OCCT deals with two or three-dimensional (2D or 3D) geometric modeling in general-purpose or specialized Computer Aided Design (CAD) systems, manufacturing or analysis applications, simulation applications, or even illustration tools.</p>
+<p>使用OCCT开发的典型应用程序涉及通用或专用计算机辅助设计（CAD）系统、制造或分析应用程序、模拟应用程序甚至插图工具中的二维或三维（2D或3D）几何建模。</p>
+<p>OCCT library is designed to be truly modular and extensible, providing C++ classes for:</p>
+<ul>
+<li>Basic data structures (geometric modeling, visualization, interactive selection and application specific services);</li>
+<li>Modeling algorithms;</li>
+<li>Working with mesh (faceted) data;</li>
+<li>Data interoperability with neutral formats (IGES, STEP);</li>
+</ul>
+<p>OCCT库被设计成真正的模块化和可扩展的，提供C++类用于：</p>
+<ul>
+<li>基本数据结构（几何建模、可视化、交互式选择和特定应用服务）；</li>
+<li>建模算法；</li>
+<li>处理网格（分面）数据；</li>
+<li>与中性格式的数据互操作性（IGES、STEP）；</li>
+</ul>
+<p>The C++ classes and other types are grouped into packages. Packages are organized into toolkits (libraries), to which you can link your application. Finally, toolkits are grouped into seven modules.</p>
+<p>C++类和其他类型被分组到包中。包被组织成工具包（库），您可以将应用程序链接到这些工具包。最后，工具包分为七个模块。</p>
+<p>This modular structure is illustrated in the diagram below.</p>
+<p>该模块化结构如下图所示。</p>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGOVJD">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGOVJD.png"  alt="technical_overview_schema" border="0" />
+      </a></p>
+<ul>
+<li>
+<p>Foundation Classes module underlies all other OCCT classes;</p>
+</li>
+<li>
+<p>Modeling Data module supplies data structures to represent 2D and 3D geometric primitives and their compositions into CAD models;</p>
+</li>
+<li>
+<p>Modeling Algorithms module contains a vast range of geometrical and topological algorithms;</p>
+<ul>
+<li>Mesh toolkit from “Modeling Algorithms” module implements tessellated representations of objects;</li>
+</ul>
+</li>
+<li>
+<p>Visualization module provides complex mechanisms for graphical data representation;</p>
+</li>
+<li>
+<p>Data Exchange module inter-operates with popular data formats and relies on Shape Healing to improve compatibility between CAD software of different vendors;</p>
+</li>
+<li>
+<p>Application Framework module offers ready-to-use solutions for handling application-specific data (user attributes) and commonly used functionality (save/restore, undo/redo, copy/paste, tracking CAD modifications, etc).</p>
+</li>
+<li>
+<p>基础类模块是所有其他OCCT类的基础；</p>
+</li>
+<li>
+<p>建模数据模块提供将2D和3D几何图元及其组合表示为CAD模型的数据结构；</p>
+</li>
+<li>
+<p>建模算法模块包含大量几何和拓扑算法；</p>
+<ul>
+<li>“建模算法”模块中的网格工具包实现了对象的细分表示；</li>
+</ul>
+</li>
+<li>
+<p>可视化模块为图形数据表示提供了复杂的机制；</p>
+</li>
+<li>
+<p>数据交换模块与流行的数据格式互操作，并依赖形状修复来提高不同供应商的CAD软件之间的兼容性；</p>
+</li>
+<li>
+<p>应用程序框架模块为处理特定于应用程序的数据（用户属性）和常用功能（保存/恢复、撤消/重做、复制/粘贴、跟踪CAD修改等）提供了现成的解决方案。</p>
+</li>
+</ul>
+<p>In addition, Open CASCADE Test Harness, also called Draw, provides an entry point to the library and can be used as a testing tool for its modules.</p>
+<p>此外，Open CASCADE测试线束（也称为Draw）提供了库的入口点，可以用作其模块的测试工具。</p>
+
+        <h3 id="foundation-classes-基础类"   >
+          <a href="#foundation-classes-基础类" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#foundation-classes-基础类"></a> Foundation Classes 基础类</h3>
+      
+<p>Foundation Classes module contains data structures and services used by higher-level Open CASCADE Technology classes:</p>
+<p>基础类模块包含高级开放式CASCADE技术类使用的数据结构和服务：</p>
+<ul>
+<li>
+<p>Primitive types, such as Boolean, Character, Integer or Real;</p>
+</li>
+<li>
+<p>String classes that handle Unicode strings;</p>
+</li>
+<li>
+<p>Collection classes that handle statically or dynamically sized aggregates of data, such as arrays, lists, queues, sets and hash tables (data maps).</p>
+</li>
+<li>
+<p>Classes providing commonly used numerical algorithms and basic linear algebra calculations (addition, multiplication, transposition of vectors and matrices, solving linear systems etc).</p>
+</li>
+<li>
+<p>Fundamental types like color, date and time information;</p>
+</li>
+<li>
+<p>Primitive geometry types providing implementation of basic geometric and algebraic entities that define and manipulate elementary data structures.</p>
+</li>
+<li>
+<p>Exception classes that describe situations, when the normal execution of program is abandoned;</p>
+</li>
+<li>
+<p>基本类型，如布尔型、字符型、整型或实型；</p>
+</li>
+<li>
+<p>处理Unicode字符串的字符串类；</p>
+</li>
+<li>
+<p>处理静态或动态大小的数据聚合的集合类，如数组、列表、队列、集合和哈希表（数据映射）。</p>
+</li>
+<li>
+<p>提供常用数值算法和基本线性代数计算（加法、乘法、向量和矩阵的换位、求解线性系统等）的课程。</p>
+</li>
+<li>
+<p>基本类型，如颜色、日期和时间信息；</p>
+</li>
+<li>
+<p>原始几何类型提供定义和操作基本数据结构的基本几何和代数实体的实现。</p>
+</li>
+<li>
+<p>当程序的正常执行被放弃时，描述情况的异常类；</p>
+</li>
+</ul>
+<p>This module also provides a variety of general-purpose services, such as:</p>
+<p>该模块还提供各种通用服务，例如：</p>
+<ul>
+<li>
+<p>Safe handling of dynamically created objects, ensuring automatic deletion of unreferenced objects (smart pointers);</p>
+</li>
+<li>
+<p>Standard and specialized memory allocators;</p>
+</li>
+<li>
+<p>Extended run-time type information (RTTI) mechanism maintaining a full type hierarchy and providing means to iterate over it;</p>
+</li>
+<li>
+<p>Encapsulation of C++ streams;</p>
+</li>
+<li>
+<p>Basic interpreter of expressions facilitating the creation of customized scripting tools, generic definition of expressions, etc.;</p>
+</li>
+<li>
+<p>Tools for dealing with configuration resource files and customizable message files facilitating multi-language support in applications;</p>
+</li>
+<li>
+<p>Progress indication and user break interfaces, giving a possibility even for low-level algorithms to communicate with the user in a universal and convenient way;</p>
+</li>
+<li>
+<p>and many others…</p>
+</li>
+<li>
+<p>安全处理动态创建的对象，确保自动删除未引用的对象（智能指针）；</p>
+</li>
+<li>
+<p>标准和专用内存分配器；</p>
+</li>
+<li>
+<p>扩展运行时类型信息（RTTI）机制，维护完整的类型层次结构并提供对其进行迭代的方法；</p>
+</li>
+<li>
+<p>C++流的封装；</p>
+</li>
+<li>
+<p>表达式的基本解释器，有助于创建自定义脚本工具、表达式的通用定义等。；</p>
+</li>
+<li>
+<p>用于处理配置资源文件和可定制消息文件的工具，促进应用程序中的多语言支持；</p>
+</li>
+<li>
+<p>进度指示和用户中断界面，即使是低级算法也有可能以通用和方便的方式与用户进行通信；</p>
+</li>
+<li>
+<p>以及其他许多。。。</p>
+</li>
+</ul>
+<p>See the details in Foundation Classes User’s Guide</p>
+<p>请参阅《基础类用户指南》中的详细信息</p>
+
+        <h3 id="modeling-data-建模数据"   >
+          <a href="#modeling-data-建模数据" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#modeling-data-建模数据"></a> Modeling Data 建模数据</h3>
+      
+<p>Modeling Data supplies data structures to implement boundary representation (BRep) of objects in 3D. In BRep the shape is represented as an aggregation of geometry within topology. The geometry is understood as a mathematical description of a shape, e.g. as curves and surfaces (simple or canonical, Bezier, NURBS, etc). The topology is a data structure binding geometrical objects together.</p>
+<p>建模数据提供数据结构以实现三维对象的边界表示（BRep）。在BRep中，形状表示为拓扑中几何体的聚合。几何体被理解为形状的数学描述，例如曲线和曲面（简单或规范、Bezier、NURBS等）。拓扑是将几何对象绑定在一起的数据结构。</p>
+<p>Geometry types and utilities provide geometric data structures and services for:</p>
+<p>几何类型和实用程序为以下对象提供几何数据结构和服务：</p>
+<ul>
+<li>
+<p>Description of points, vectors, curves and surfaces:</p>
+<ul>
+<li>their positioning in 3D space using axis or coordinate systems, and</li>
+<li>their geometric transformation, by applying translations, rotations, symmetries, scaling transformations and combinations thereof.</li>
+</ul>
+</li>
+<li>
+<p>Creation of parametric curves and surfaces by interpolation and approximation;</p>
+</li>
+<li>
+<p>Algorithms of direct construction;</p>
+</li>
+<li>
+<p>Conversion of curves and surfaces to NURBS form;</p>
+</li>
+<li>
+<p>Computation of point coordinates on 2D and 3D curves;</p>
+</li>
+<li>
+<p>Calculation of extrema between geometric objects.</p>
+</li>
+<li>
+<p>点、向量、曲线和曲面的描述：</p>
+<ul>
+<li>使用轴或坐标系在3D空间中定位，以及</li>
+<li>它们的几何变换，通过应用平移、旋转、对称、缩放变换及其组合。</li>
+</ul>
+</li>
+<li>
+<p>通过插值和近似创建参数曲线和曲面；</p>
+</li>
+<li>
+<p>直接构造算法；</p>
+</li>
+<li>
+<p>将曲线和曲面转换为NURBS形式；</p>
+</li>
+<li>
+<p>计算二维和三维曲线上的点坐标；</p>
+</li>
+<li>
+<p>计算几何对象之间的极值。</p>
+</li>
+</ul>
+<p>Topology defines relationships between simple geometric entities. A shape, which is a basic topological entity, can be divided into components (sub-shapes):</p>
+<p>拓扑定义简单几何图元之间的关系。形状是一个基本的拓扑实体，可以分为组件（子形状）：</p>
+<ul>
+<li>
+<p>Vertex – a zero-dimensional shape corresponding to a point;</p>
+</li>
+<li>
+<p>Edge – a shape corresponding to a curve and bounded by a vertex at each extremity;</p>
+</li>
+<li>
+<p>Wire – a sequence of edges connected by their vertices;</p>
+</li>
+<li>
+<p>Face – a part of a plane (in 2D) or a surface (in 3D) bounded by wires;</p>
+</li>
+<li>
+<p>Shell – a collection of faces connected by edges of their wire boundaries;</p>
+</li>
+<li>
+<p>Solid – a finite closed part of 3D space bounded by shells;</p>
+</li>
+<li>
+<p>Composite solid – a collection of solids connected by faces of their shell boundaries;</p>
+</li>
+<li>
+<p>Compound – a collection of shapes of arbitrary type.</p>
+</li>
+<li>
+<p>顶点–与点相对应的零维形状；</p>
+</li>
+<li>
+<p>边–与曲线相对应的形状，并在每个端点处以顶点为界；</p>
+</li>
+<li>
+<p>Wire–由顶点连接的一系列边；</p>
+</li>
+<li>
+<p>面–由导线界定的平面（二维）或曲面（三维）的一部分；</p>
+</li>
+<li>
+<p>壳–通过其线边界的边缘连接的面的集合；</p>
+</li>
+<li>
+<p>实体–三维空间中由壳限定的有限闭合部分；</p>
+</li>
+<li>
+<p>复合实体–由其壳边界面连接的实体集合；</p>
+</li>
+<li>
+<p>复合–任意类型形状的集合。</p>
+</li>
+</ul>
+<p>Complex shapes can be defined as assemblies (compounds) of simpler entities.</p>
+<p>复杂形状可以定义为简单实体的组合（复合）。</p>
+<p>See the details in Modeling Data User’s Guide</p>
+<p>请参见建模数据用户指南中的详细信息</p>
+<p>3D geometric models can be stored in OCCT native BREP format. See BREP Format Description White Paper for details on the format.</p>
+<p>3D几何模型可以OCCT原生BREP格式存储。有关格式的详细信息，请参阅BREP格式说明白皮书。</p>
+
+        <h3 id="modeling-algorithms-建模算法"   >
+          <a href="#modeling-algorithms-建模算法" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#modeling-algorithms-建模算法"></a> Modeling Algorithms 建模算法</h3>
+      
+<p>Modeling Algorithms module groups a wide range of topological and geometric algorithms used in geometric modeling. Basically, there are two groups of algorithms in Open CASCADE Technology:</p>
+<ul>
+<li>High-level modeling routines used in the real design;</li>
+<li>Low-level mathematical support functions used as a groundwork for the modeling API.</li>
+</ul>
+<p>建模算法模块对几何建模中使用的各种拓扑和几何算法进行分组。基本上，开放式CASCADE技术有两组算法：</p>
+<ul>
+<li>真实设计中使用的高级建模例程；</li>
+<li>低级数学支持函数用作建模API的基础。</li>
+</ul>
+<p>Low-level geometric tools provide the algorithms, which:</p>
+<ul>
+<li>Calculate the intersection of two curves, surfaces, or a curve and a surface;</li>
+<li>Project points onto 2D and 3D curves, points onto surfaces and 3D curves onto surfaces;</li>
+<li>Construct lines and circles from constraints;</li>
+<li>Construct free-form curves and surfaces from constraints (interpolation, approximation, skinning, gap filling, etc).</li>
+</ul>
+<p>低级几何工具提供以下算法：</p>
+<ul>
+<li>计算两条曲线、曲面或曲线与曲面的交点；</li>
+<li>将点投影到2D和3D曲线上，将点投影在曲面上，将3D曲线投影到曲面上；</li>
+<li>根据约束构造直线和圆；</li>
+<li>根据约束（插值、近似、蒙皮、间隙填充等）构造自由曲线和曲面。</li>
+</ul>
+<p>Low-level topological tools provide the algorithms, which:</p>
+<ul>
+<li>Tessellate shapes;</li>
+<li>Check correct definition of shapes;</li>
+<li>Determine the local and global properties of shapes (derivatives, mass-inertia properties, etc);</li>
+<li>Perform affine transformations;</li>
+<li>Find planes in which edges are located;</li>
+<li>Convert shapes to NURBS geometry;</li>
+<li>Sew connected topologies (shells and wires) from separate topological elements (faces and edges).</li>
+</ul>
+<p>低级拓扑工具提供以下算法：</p>
+<ul>
+<li>细化形状；</li>
+<li>检查形状的正确定义；</li>
+<li>确定形状的局部和全局特性（导数、质量惯性特性等）；</li>
+<li>执行仿射变换；</li>
+<li>查找边所在的平面；</li>
+<li>将形状转换为NURBS几何体；</li>
+<li>从单独的拓扑元素（面和边）缝合连接的拓扑（壳和线）。</li>
+</ul>
+<p>Top-level API provides the following functionality:</p>
+<ul>
+<li>Construction of Primitives:
+<ul>
+<li>Boxes;</li>
+<li>Prisms;</li>
+<li>Cylinders;</li>
+<li>Cones;</li>
+<li>Spheres;</li>
+<li>Toruses.</li>
+</ul>
+</li>
+<li>Kinematic Modeling:
+<ul>
+<li>Prisms – linear sweeps;</li>
+<li>Revolutions – rotational sweeps;</li>
+<li>Pipes – general-form sweeps;</li>
+<li>Lofting.</li>
+</ul>
+</li>
+</ul>
+<p>顶级API提供以下功能：</p>
+<ul>
+<li>基本要素的构造：
+<ul>
+<li>箱子；</li>
+<li>棱镜；</li>
+<li>气缸；</li>
+<li>圆锥；</li>
+<li>球体；</li>
+<li>圆环。</li>
+</ul>
+</li>
+<li>运动学建模：
+<ul>
+<li>棱镜——线性扫描；</li>
+<li>旋转–旋转扫掠；</li>
+<li>管道——一般模板扫掠；</li>
+<li>放样。</li>
+</ul>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGd3fD">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGd3fD.png"  alt="Shapes containing pipes with variable radius produced by sweeping" border="0" />
+      </a></p>
+<p>Shapes containing pipes with variable radius produced by sweeping</p>
+<p>包含通过扫掠产生的具有可变半径的管道的形状</p>
+<p>Boolean Operations, which allow creating new shapes from the combinations of source shapes. For two shapes S1 and S2:</p>
+<ul>
+<li>Common contains all points that are in S1 and S2;</li>
+<li>Fuse contains all points that are in S1 or S2;</li>
+<li>Cut contains all points in that are in S1 and not in S2.</li>
+</ul>
+<p>See Boolean Operations User’s Guide for detailed documentation.</p>
+<p>布尔运算，允许从源形状的组合中创建新形状。对于两种形状S1和S2：</p>
+<ul>
+<li>公共包含S1和S2中的所有点；</li>
+<li>保险丝包含S1或S2中的所有点；</li>
+<li>切割包含S1中而不是S2中的所有点。</li>
+</ul>
+<p>有关详细文档，请参阅布尔运算用户指南。</p>
+<ul>
+<li>
+<p>Algorithms for local modifications such as:</p>
+<ul>
+<li>Hollowing;</li>
+<li>Shelling;</li>
+<li>Creation of tapered shapes using draft angles;</li>
+<li>Algorithms to make fillets and chamfers on shape edges, including those with variable radius (chord).</li>
+</ul>
+</li>
+<li>
+<p>Algorithms for creation of mechanical features, i.e. depressions, protrusions, ribs and grooves or slots along planar or revolution surfaces.</p>
+</li>
+<li>
+<p>局部修改算法，如：</p>
+<ul>
+<li>空心化；</li>
+<li>外壳；</li>
+<li>使用拔模角创建锥形形状；</li>
+<li>在形状边上生成圆角和倒角的算法，包括具有可变半径（弦）的边。</li>
+</ul>
+</li>
+<li>
+<p>创建机械特征的算法，即沿平面或旋转表面的凹陷、突起、肋和凹槽或槽。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGdo71">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGdo71.png"  alt="oGdo71.png" border="0" />
+      </a></p>
+<p>See the details in Modeling Algorithms User’s Guide.</p>
+<p>请参见建模算法用户指南中的详细信息。</p>
+
+        <h3 id="mesh-网格"   >
+          <a href="#mesh-网格" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#mesh-网格"></a> Mesh 网格</h3>
+      
+<p>Mesh toolkit provides the functionality to work with tessellated representations of objects in form of triangular facets. This toolkit contains:</p>
+<ul>
+<li>data structures to store surface mesh data associated to shapes and basic algorithms to handle them;</li>
+<li>data structures and algorithms to build triangular surface mesh from BRep objects (shapes);</li>
+<li>tools for displaying meshes with associated pre- and post-processor data (scalars or vectors).</li>
+</ul>
+<p>网格工具包提供了使用三角形面片形式的对象细分表示的功能。此工具包包含：</p>
+<ul>
+<li>存储与形状相关联的表面网格数据的数据结构和处理它们的基本算法；</li>
+<li>从BRep对象（形状）构建三角形曲面网格的数据结构和算法；</li>
+<li>用于显示具有相关的前置和后置处理器数据（标量或向量）的网格的工具。</li>
+</ul>
+<p>Open CASCADE SAS also offers Advanced Mesh Products:</p>
+<ul>
+<li>Open CASCADE Mesh Framework (OMF)</li>
+<li>Express Mesh</li>
+</ul>
+<p>Open CASCADE SAS还提供高级网格产品：</p>
+<ul>
+<li>开放式CASCADE网格框架（OMF）</li>
+<li>快速网眼布</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGd1wo">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGd1wo.png"  alt="oGd1wo.png" border="0" />
+      </a></p>
+
+        <h3 id="visualization-可视化"   >
+          <a href="#visualization-可视化" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#visualization-可视化"></a> Visualization 可视化</h3>
+      
+<p>Visualization module provides ready-to-use algorithms to create graphic presentations from various objects: shapes, meshes, etc.</p>
+<p>可视化模块提供了现成的算法，用于从各种对象（形状、网格等）创建图形演示。</p>
+<p>In Open CASCADE Technology visualization is based on the separation of CAD data and its graphical presentation. The module also supports a fast and powerful interactive selection mechanism.</p>
+<p>在开放式CASCADE技术中，可视化是基于CAD数据及其图形表示的分离。该模块还支持快速而强大的交互式选择机制。</p>
+<p>Visualization module relies on the following key toolkits:</p>
+<ul>
+<li>TKV3d toolkit defines a high-level API called (Application Interactive Services* (AIS) for working with interactive objects.</li>
+<li>TKService toolkit defines a low-level API for managing and creating presentations from primitive arrays. This toolkit defines an abstraction layer for defining an arbitrary graphic driver responsible for actual rendering.</li>
+<li>TKOpenGl toolkit implements the graphic driver using OpenGL and OpenGL ES libraries.</li>
+</ul>
+<p>可视化模块依赖于以下关键工具包：</p>
+<ul>
+<li>TKV3d工具包定义了一个名为（Application Interactive Services*（AIS）的高级API，用于处理交互式对象。</li>
+<li>TKService工具包定义了一个低级API，用于从原始数组管理和创建演示文稿。该工具包定义了一个抽象层，用于定义负责实际渲染的任意图形驱动程序。</li>
+<li>TKOpenGl工具包使用OpenGL和OpenGLES库实现图形驱动程序。</li>
+</ul>
+<p>While low-level API operates with primitive arrays (triangles, lines, points), the higher level includes services for building presentations for B-Rep shapes (shaded and wireframe). A comprehensive list of standard interactive objects includes topological shape, mesh presentation, various dimensions, manipulators and others. It provides a solid basis for rapid application development, while flexible and extensible API allows development of highly customized application-specific presentations.</p>
+<p>虽然低级API使用基本数组（三角形、直线、点）进行操作，但更高级的API包括为B-Rep形状（着色和线框）构建表示的服务。标准交互对象的全面列表包括拓扑形状、网格表示、各种尺寸、操纵器和其他。它为快速应用程序开发提供了坚实的基础，而灵活和可扩展的API允许开发高度定制的特定于应用程序的演示。</p>
+<p>Here are a few examples of OCCT Visualization features:</p>
+<ul>
+<li>Camera-driven view projection and orientation. Perspective, orthographic and stereographic projections are supported.</li>
+<li>Support of Common (diffuse/ambient/specular) and PBR metallic-roughness material models.</li>
+<li>Possibility to flexibly adjust appearance of dimensions in a 3D view. The 3D text object represents a given text string as a true 3D object in the model space.</li>
+<li>Definition of clipping planes through the plane equation coefficients. Ability to define visual attributes for cross-section at the level or individual clipping planes. In the image below different parts of the rocket are clipped with different planes and hatched.</li>
+</ul>
+<p>以下是OCCT可视化功能的几个示例：</p>
+<ul>
+<li>相机驱动视图投影和方向。支持透视、正交和立体投影。</li>
+<li>支持通用（漫反射/环境光/镜面反射）和PBR金属粗糙度材料模型。</li>
+<li>可以灵活调整三维视图中尺寸的外观。3D文本对象将给定的文本字符串表示为模型空间中的真实3D对象。</li>
+<li>通过平面方程系数定义裁剪平面。能够在级别或单个剪裁平面上定义横截面的视觉属性。在下图中，火箭的不同部分用不同的平面裁剪并加上阴影。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGdPBK">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGdPBK.png"  alt="Display of shape cross-section and dimensions" border="0" />
+      </a></p>
+<p>Display of shape cross-section and dimensions</p>
+<p>显示形状横截面和尺寸</p>
+<ul>
+<li>
+<p>Support of built-in and application-specific GLSL shaders</p>
+</li>
+<li>
+<p>支持内置和特定于应用程序的GLSL着色器</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGdqWC">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGdqWC.png"  alt="Fragment shader implementing custom clipping surface" border="0" />
+      </a></p>
+<p>Fragment shader implementing custom clipping surface</p>
+<p>片段着色器实现自定义剪裁曲面</p>
+<ul>
+<li>
+<p>Optimization of rendering performance through the algorithms of:</p>
+<ul>
+<li>View frustum culling, which skips the presentation outside camera at the rendering stage;</li>
+<li>Back face culling, which reduces the rendered number of triangles and eliminates artifacts at shape boundaries.</li>
+</ul>
+</li>
+<li>
+<p>Real-time ray tracing technique using recursive Whitted’s algorithm and Bounded Volume Hierarchy effective optimization structure.</p>
+</li>
+<li>
+<p>通过以下算法优化渲染性能：</p>
+<ul>
+<li>视图平截头体剔除，在渲染阶段跳过摄像机外的演示；</li>
+<li>背面剔除，减少了渲染的三角形数量，并消除了形状边界处的瑕疵。</li>
+</ul>
+</li>
+<li>
+<p>使用递归Whitted算法和有界体积层次有效优化结构的实时光线跟踪技术。</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGdatb">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGdatb.png"  alt="Real time visualization by ray tracing method" border="0" />
+      </a></p>
+<p>Real time visualization by ray tracing method</p>
+<p>射线追踪法实时可视化</p>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGdeqS">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGdeqS.png"  alt="Simulation of a glass cover" border="0" />
+      </a></p>
+<p>Simulation of a glass cover</p>
+<p>模拟玻璃盖</p>
+<p>For more details, see Visualization User’s Guide.</p>
+<p>有关详细信息，请参阅可视化用户指南。</p>
+<p>The visualization of OCCT topological shapes by means of VTK library provided by VIS component is described in a separate VTK Integration Services User’s Guide.</p>
+<p>通过VIS组件提供的VTK库可视化OCCT拓扑形状在单独的VTK集成服务用户指南中进行了描述。</p>
+
+        <h3 id="data-exchange-数据交换"   >
+          <a href="#data-exchange-数据交换" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#data-exchange-数据交换"></a> Data Exchange 数据交换</h3>
+      
+<p>Data Exchange allows developing OCCT-based applications that can interact with other CAD systems by writing and reading CAD models to and from external data.</p>
+<p>数据交换允许开发基于OCCT的应用程序，通过向外部数据写入和读取CAD模型，这些应用程序可以与其他CAD系统交互。</p>
+<p><a target="_blank" rel="noopener" href="https://www.helloimg.com/image/oGdJPt">
+        <img   class="lazyload lazyload-gif"
+          src="/images/loading.svg" data-src="https://www.helloimg.com/images/2023/01/12/oGdJPt.png"  alt="Shape imported from STEP" border="0" />
+      </a></p>
+<p>Shape imported from STEP</p>
+<p>从STEP导入的形状</p>
+<p>Data Exchange is organized in a modular way as a set of interfaces that comply with various CAD formats: IGES, STEP, STL, VRML, etc. The interfaces allow software based on OCCT to exchange data with various CAD/PDM software packages, maintaining a good level of interoperability. This module handles various problems of interoperability between CAD systems, caused by differences in model validity criteria and requirements to internal representation.</p>
+<p>数据交换以模块化的方式组织为一组符合各种CAD格式的接口：IGES、STEP、STL、VRML等。这些接口允许基于OCCT的软件与各种CAD/PDM软件包交换数据，保持良好的互操作性。本模块处理CAD系统之间互操作性的各种问题，这些问题是由模型有效性标准和内部表示要求的差异引起的。</p>
+<ul>
+<li>
+<p>Standardized Data Exchange interfaces allow querying and examining the input file, converting its contents to a CAD model and running validity checks on a fully translated shape. The following formats are currently supported:</p>
+<ul>
+<li>STEP (AP203: Mechanical Design, this covers General 3D CAD; AP214: Automotive Design; AP242).</li>
+<li>IGES (up to 5.3).</li>
+<li>glTF 2.0 reader and writer.</li>
+<li>OBJ mesh file reader and writer.</li>
+<li>VRML converter translates Open CASCADE shapes to VRML 1.0 files (Virtual Reality Modeling Language).</li>
+<li>STL converter translates Open CASCADE shapes to STL files. STL (STtereoLithography) format is widely used for rapid prototyping (3D printing).</li>
+</ul>
+</li>
+<li>
+<p>Extended data exchange (XDE) allows translating additional attributes attached to geometric data (colors, layers, names, materials etc).</p>
+</li>
+<li>
+<p>Advanced Data Exchange Components are available in addition to standard Data Exchange interfaces to support interoperability and data adaptation (also using Shape Healing) with CAD software using the following proprietary formats:</p>
+<ul>
+<li>ACIS SAT</li>
+<li>Parasolid</li>
+<li>DXF</li>
+<li>IFC</li>
+<li>JT</li>
+</ul>
+</li>
+<li>
+<p>标准化的数据交换接口允许查询和检查输入文件，将其内容转换为CAD模型，并对完全转换的形状进行有效性检查。当前支持以下格式：</p>
+<ul>
+<li>STEP（AP203：机械设计，包括通用3D CAD；AP214：汽车设计；AP242）。</li>
+<li>IGES（最高5.3）。</li>
+<li>glTF 2.0读写器。</li>
+<li>OBJ网格文件读取器和写入器。</li>
+<li>VRML转换器将Open CASCADE形状转换为VRML 1.0文件（虚拟现实建模语言）。</li>
+<li>STL转换器将Open CASCADE形状转换为STL文件。STL（STtereoLithography）格式广泛用于快速成型（3D打印）。</li>
+</ul>
+</li>
+<li>
+<p>扩展数据交换（XDE）允许转换附加到几何数据的附加属性（颜色、图层、名称、材质等）。</p>
+</li>
+<li>
+<p>除了标准数据交换接口之外，还提供了高级数据交换组件，以支持CAD软件的互操作性和数据适配（也使用形状修复），该软件使用以下专有格式：</p>
+<ul>
+<li>ACIS SAT</li>
+<li>Parasolid</li>
+<li>DXF</li>
+<li>IFC</li>
+<li>JT</li>
+</ul>
+</li>
+</ul>
+<p>These components are based on the same architecture as interfaces with STEP and IGES.</p>
+<p>这些组件基于与STEP和IGES接口相同的体系结构。</p>
+
+        <h3 id="shape-healing-形状修复"   >
+          <a href="#shape-healing-形状修复" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#shape-healing-形状修复"></a> Shape Healing 形状修复</h3>
+      
+<p>Shape Healing library provides algorithms to correct and adapt the geometry and topology of shapes imported to OCCT from other CAD systems.</p>
+<p>形状修复库提供了算法，用于纠正和调整从其他CAD系统导入OCCT的形状的几何和拓扑。</p>
+<p>Shape Healing algorithms include, but are not limited to, the following operations:</p>
+<p>形状修复算法包括但不限于以下操作：</p>
+<ul>
+<li>
+<p>Analyze shape characteristics and, in particular, identify the shapes that do not comply with OCCT geometry and topology validity rules by analyzing geometrical objects and topology:</p>
+<ul>
+<li>check edge and wire consistency;</li>
+<li>check edge order in a wire;</li>
+<li>check the orientation of face boundaries;</li>
+<li>analyze shape tolerances;</li>
+<li>identify closed and open wires in a boundary.</li>
+</ul>
+</li>
+<li>
+<p>Fix incorrect or incomplete shapes:</p>
+</li>
+<li>
+<p>provide consistency between a 3D curve and its corresponding parametric curve;</p>
+</li>
+<li>
+<p>repair defective wires;</p>
+</li>
+<li>
+<p>fit the shapes to a user-defined tolerance value;</p>
+</li>
+<li>
+<p>fill gaps between patches and edges.</p>
+</li>
+<li>
+<p>Upgrade and change shape characteristics:</p>
+<ul>
+<li>reduce curve and surface degree;</li>
+<li>split shapes to obtain C1 continuity;</li>
+<li>convert any types of curves or surfaces to Bezier or B-Spline curves or surfaces and back;</li>
+<li>split closed surfaces and revolution surfaces.</li>
+</ul>
+</li>
+<li>
+<p>分析形状特征，特别是通过分析几何对象和拓扑来识别不符合OCCT几何和拓扑有效性规则的形状：</p>
+<ul>
+<li>检查边缘和金属丝的一致性；</li>
+<li>检查导线中的边缘顺序；</li>
+<li>检查面边界的方向；</li>
+<li>分析形状公差；</li>
+<li>识别边界中的闭合导线和开放导线。</li>
+</ul>
+</li>
+<li>
+<p>修复不正确或不完整的形状：</p>
+<ul>
+<li>提供3D曲线与其对应的参数曲线之间的一致性；</li>
+<li>修理有缺陷的电线；</li>
+<li>使形状符合用户定义的公差值；</li>
+<li>填充面片和边之间的间隙。</li>
+</ul>
+</li>
+<li>
+<p>升级和更改形状特征：</p>
+<ul>
+<li>降低曲线和曲面度；</li>
+<li>分割形状以获得C1连续性；</li>
+<li>将任何类型的曲线或曲面转换为贝塞尔曲线或B样条曲线或曲面，然后返回；</li>
+<li>分割闭合曲面和旋转曲面。</li>
+</ul>
+</li>
+</ul>
+<p>Each sub-domain of Shape Healing has its own scope of functionality:</p>
+<p>形状修复的每个子域都有自己的功能范围：</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Sub-domain</th>
+<th>Description</th>
+<th>Impact on the shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Analysis</td>
+<td>Explores shape properties, computes shape features, detects violation of OCCT requirements.</td>
+<td>The shape itself is not modified.</td>
+</tr>
+<tr>
+<td>Fixing</td>
+<td>Fixes the shape to meet the OCCT requirements.</td>
+<td>The shape may change its original form: modification, removal or creation of sub-shapes, etc.)</td>
+</tr>
+<tr>
+<td>Upgrade</td>
+<td>Improves the shape to fit some particular algorithms.</td>
+<td>The shape is replaced with a new one, but geometrically they are the same.</td>
+</tr>
+<tr>
+<td>Customization</td>
+<td>Modifies the shape representation to fit specific needs.</td>
+<td>The shape is not modified, only the mathematical form of its internal representation is changed.</td>
+</tr>
+<tr>
+<td>Processing</td>
+<td>Mechanism of shape modification via a user-editable resource file.</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>子域</th>
+<th>描述</th>
+<th>对形状的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分析</td>
+<td>探索形状属性，计算形状特征，检测违反OCCT要求的情况。</td>
+<td>形状本身不会被修改</td>
+</tr>
+<tr>
+<td>固定</td>
+<td>固定形状以满足OCCT要求。</td>
+<td>形状可能会更改其原始形状：修改、删除或创建子形状等）</td>
+</tr>
+<tr>
+<td>升级</td>
+<td>改进形状以适应某些特定算法。</td>
+<td>形状被替换为新的形状，但在几何上它们是相同的</td>
+</tr>
+<tr>
+<td>自定义</td>
+<td>修改形状表示以满足特定需要。</td>
+<td>形状不会被修改，只会改变其内部表示的数学形式</td>
+</tr>
+<tr>
+<td>处理</td>
+<td>通过用户可编辑的资源文件修改形状的机制。</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<p>For more details, refer to Shape Healing User’s guide.</p>
+<p>有关详细信息，请参阅《形状修复用户指南》。</p>
+
+        <h3 id="application-framework-应用程序框架"   >
+          <a href="#application-framework-应用程序框架" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#application-framework-应用程序框架"></a> Application Framework 应用程序框架</h3>
+      
+<p>Open CASCADE Application Framework (OCAF) handles Application Data basing on the Application/Document paradigm. It uses an associativity engine to simplify the development of a CAD application thanks to the following ready-to-use features and services:</p>
+<p>开放式CASCADE应用程序框架（OCAF）基于应用程序/文档范式处理应用程序数据。它使用关联引擎简化CAD应用程序的开发，这得益于以下即用功能和服务：</p>
+<ul>
+<li>
+<p>Data attributes managing the application data, which can be organized according to the development needs;</p>
+</li>
+<li>
+<p>Data storage and persistence (open/save);</p>
+</li>
+<li>
+<p>Possibility to modify and recompute attributes in documents. With OCAF it is easy to represent the history of modification and parametric dependencies within your model;</p>
+</li>
+<li>
+<p>Possibility to manage multiple documents;</p>
+</li>
+<li>
+<p>Predefined attributes common to CAD/CAM/CAE applications (e.g. to store dimensions);</p>
+</li>
+<li>
+<p>Undo-Redo and Copy-Paste functions.</p>
+</li>
+<li>
+<p>管理应用程序数据的数据属性，可根据开发需要进行组织；</p>
+</li>
+<li>
+<p>数据存储和持久性（打开/保存）；</p>
+</li>
+<li>
+<p>可以修改和重新计算文档中的属性。使用OCAF，可以很容易地表示模型中的修改历史和参数依赖关系；</p>
+</li>
+<li>
+<p>可以管理多个文档；</p>
+</li>
+<li>
+<p>CAD/CAM/CAE应用程序通用的预定义属性（例如存储尺寸）；</p>
+</li>
+<li>
+<p>撤消重做和复制粘贴功能。</p>
+</li>
+</ul>
+<p>Since OCAF handles the application structure, the only development task is the creation of application-specific data and GUIs.</p>
+<p>由于OCAF处理应用程序结构，唯一的开发任务是创建特定于应用程序的数据和GUI。</p>
+<p>OCAF differs from any other CAD framework in the organization of application data, as there the data structures are based on reference keys rather than on shapes. In a model, such attributes as shape data, color and material are attached to an invariant structure, which is deeper than the shapes. A shape object becomes the value of Shape attribute, in the same way as an integer number is the value of Integer attribute and a string is the value of Name attribute.</p>
+<p>OCAF在应用程序数据的组织方面不同于任何其他CAD框架，因为数据结构基于参考键而不是形状。在模型中，形状数据、颜色和材质等属性附加到比形状更深的不变结构。形状对象成为“形状”属性的值，这与整数是“整数”属性值，字符串是“名称”属性值相同。</p>
+<p>OCAF organizes and embeds these attributes in a document. OCAF documents, in their turn, are managed by an OCAF application.</p>
+<p>OCAF将这些属性组织并嵌入到文档中。OCAF文档则由OCAF应用程序管理。</p>
+<p>For more details, see OCAF User’s Guide.</p>
+<p>有关详细信息，请参阅OCAF用户指南。</p>
+
+        <h3 id="draw-test-harness"   >
+          <a href="#draw-test-harness" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#draw-test-harness"></a> Draw Test Harness</h3>
+      
+<p>Test Harness or Draw is a convenient testing tool for OCCT libraries. It can be used to test and prototype various algorithms before building an entire application. It includes:</p>
+<p>测试线束或绘图是OCCT库的一种方便的测试工具。它可以用于在构建整个应用程序之前测试和原型化各种算法。它包括：</p>
+<ul>
+<li>
+<p>A command interpreter based on the TCL language;</p>
+</li>
+<li>
+<p>A number of 2D and 3D viewers;</p>
+</li>
+<li>
+<p>A set of predefined commands.</p>
+</li>
+<li>
+<p>基于TCL语言的命令解释器；</p>
+</li>
+<li>
+<p>许多2D和3D观众；</p>
+</li>
+<li>
+<p>一组预定义的命令。</p>
+</li>
+</ul>
+<p>The viewers support operations such as zoom, pan, rotation and full-screen views.</p>
+<p>查看器支持缩放、平移、旋转和全屏视图等操作。</p>
+<p>The basic commands provide general-purpose services such as:</p>
+<p>基本命令提供通用服务，例如：</p>
+<ul>
+<li>
+<p>Getting help;</p>
+</li>
+<li>
+<p>Evaluating a script from a file;</p>
+</li>
+<li>
+<p>Capturing commands in a file;</p>
+</li>
+<li>
+<p>Managing views;</p>
+</li>
+<li>
+<p>Displaying objects.</p>
+</li>
+<li>
+<p>获得帮助；</p>
+</li>
+<li>
+<p>从文件中评估脚本；</p>
+</li>
+<li>
+<p>捕获文件中的命令；</p>
+</li>
+<li>
+<p>管理视图；</p>
+</li>
+<li>
+<p>显示对象。</p>
+</li>
+</ul>
+<p>In addition, Test Harness provides commands to create and manipulate curves and surfaces (geometry) and shapes, access visualization services, work with OCAF documents, perform data exchange, etc.</p>
+<p>此外，测试线束还提供创建和操纵曲线和曲面（几何图形）和形状、访问可视化服务、使用OCAF文档、执行数据交换等命令。</p>
+<p>You can add custom commands to test or demonstrate any new functionalities, which you develop.</p>
+<p>您可以添加自定义命令来测试或演示您开发的任何新功能。</p>
+<p>For more details, see Draw Test Harness Manual.</p>
+<p>有关详细信息，请参见绘制测试线束手册。</p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://hipposox.github.io">HippoSoX</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://hipposox.github.io/2023/01/11/OCCT-Introduction/">http://hipposox.github.io/2023/01/11/OCCT-Introduction/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://hipposox.github.io/tags/Opencascade/">Opencascade</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://hipposox.github.io/tags/OCCT/">OCCT</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/01/12/TensorRT/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">TensorRT</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/01/10/urdf-tutorials-04/"><span class="paginator-prev__text">【urdf_tutorials】Using a URDF in Gazebo 在Gazebo中使用URDF</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#open-cascade-technology"><span class="toc-number">1.</span> <span class="toc-text">
+           Open CASCADE Technology</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#overview-%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">
+           Overview 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#foundation-classes-%E5%9F%BA%E7%A1%80%E7%B1%BB"><span class="toc-number">1.1.1.</span> <span class="toc-text">
+           Foundation Classes 基础类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modeling-data-%E5%BB%BA%E6%A8%A1%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.2.</span> <span class="toc-text">
+           Modeling Data 建模数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#modeling-algorithms-%E5%BB%BA%E6%A8%A1%E7%AE%97%E6%B3%95"><span class="toc-number">1.1.3.</span> <span class="toc-text">
+           Modeling Algorithms 建模算法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mesh-%E7%BD%91%E6%A0%BC"><span class="toc-number">1.1.4.</span> <span class="toc-text">
+           Mesh 网格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#visualization-%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">1.1.5.</span> <span class="toc-text">
+           Visualization 可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-exchange-%E6%95%B0%E6%8D%AE%E4%BA%A4%E6%8D%A2"><span class="toc-number">1.1.6.</span> <span class="toc-text">
+           Data Exchange 数据交换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shape-healing-%E5%BD%A2%E7%8A%B6%E4%BF%AE%E5%A4%8D"><span class="toc-number">1.1.7.</span> <span class="toc-text">
+           Shape Healing 形状修复</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#application-framework-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.8.</span> <span class="toc-text">
+           Application Framework 应用程序框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#draw-test-harness"><span class="toc-number">1.1.9.</span> <span class="toc-text">
+           Draw Test Harness</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">motto</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">18</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">14</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1449790718&auto=1&height=66"></iframe></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>HippoSoX</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v5.4.2</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.8.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>

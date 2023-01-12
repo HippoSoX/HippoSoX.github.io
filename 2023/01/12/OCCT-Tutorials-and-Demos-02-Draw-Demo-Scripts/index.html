@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="Tutorials and Demos 02         原文链接: https:&#x2F;&#x2F;dev.opencascade.org&#x2F;doc&#x2F;overview&#x2F;html&#x2F;samples__draw_scripts.html                       Draw: Demo Scripts 绘制：演示脚本        All demo scripts are p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OCCT-Tutorials_and_Demos_02:Draw:Demo_Scripts">
+<meta property="og:url" content="http://hipposox.github.io/2023/01/12/OCCT-Tutorials-and-Demos-02-Draw-Demo-Scripts/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Tutorials and Demos 02         原文链接: https:&#x2F;&#x2F;dev.opencascade.org&#x2F;doc&#x2F;overview&#x2F;html&#x2F;samples__draw_scripts.html                       Draw: Demo Scripts 绘制：演示脚本        All demo scripts are p">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-12T12:56:58.000Z">
+<meta property="article:modified_time" content="2023-01-12T15:26:13.390Z">
+<meta property="article:author" content="HippoSoX">
+<meta property="article:tag" content="Opencascade">
+<meta property="article:tag" content="OCCT">
+<meta name="twitter:card" content="summary"><title>OCCT-Tutorials_and_Demos_02:Draw:Demo_Scripts | Hexo</title><link ref="canonical" href="http://hipposox.github.io/2023/01/12/OCCT-Tutorials-and-Demos-02-Draw-Demo-Scripts/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"dark","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">erocool</div><div class="header-banner-info__subtitle">You know what</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">OCCT-Tutorials_and_Demos_02:Draw:Demo_Scripts</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-01-12</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-01-12</span></span></div></header><div class="post-body">
+        <h1 id="tutorials-and-demos-02"   >
+          <a href="#tutorials-and-demos-02" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#tutorials-and-demos-02"></a> Tutorials and Demos 02</h1>
+      
+<blockquote>
+<p>原文链接: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://dev.opencascade.org/doc/overview/html/samples__draw_scripts.html" >https://dev.opencascade.org/doc/overview/html/samples__draw_scripts.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</blockquote>
+
+        <h2 id="draw-demo-scripts-绘制演示脚本"   >
+          <a href="#draw-demo-scripts-绘制演示脚本" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#draw-demo-scripts-绘制演示脚本"></a> Draw: Demo Scripts 绘制：演示脚本</h2>
+      
+<p>All demo scripts are provided with OCCT sources and locate in CASROOT/samples/tcl. To play around them please follow the steps below:</p>
+<p>所有演示脚本都提供了OCCT源，并位于CASROOT/samples/tcl中。要绕过它们，请遵循以下步骤：</p>
+<span id="more"></span>
+<ol>
+<li>Start DRAWEXE</li>
+<li>Type cd …/… to return to the root directory</li>
+<li>Type cd samples/tcl to reach the DrawResources directory</li>
+<li>Type source &lt;demo_file&gt; to run the demonstration file provided with Open CASCADE. The following demonstration files are available:
+<ul>
+<li>DataExchangeDemo.tcl: demonstrates sample sequence of operations with writing and reading IGES file</li>
+<li>ModelingDemo.tcl: demonstrates creation of simple shape and displaying it in HLR mode</li>
+<li>VisualizationDemo.tcl: demonstrates use of 3d viewer</li>
+<li>cad.tcl: creates solid shape looking like abbreviation “CAD”</li>
+<li>bottle.tcl: creates bottle as in OCCT Tutorial</li>
+<li>drill.tcl: creates twist drill bit shape</li>
+<li>cutter.tcl: creates milling cutter shape</li>
+<li>xde.tcl: demonstrates creation of simple assembly in XDE</li>
+<li>materials.tcl: demonstrates visual properties of materials supported by 3d viewer</li>
+<li>raytrace.tcl: demonstrates use of ray tracing display in 3d viewer</li>
+<li>dimensions.tcl: demonstrates use of dimensions, clipping, and capping in 3d viewer</li>
+<li>…</li>
+</ul>
+</li>
+</ol>
+<!---->
+<ol>
+<li>启动DRAWEXE</li>
+<li>键入cd…/。。返回到根目录</li>
+<li>键入cd samples/tcl以访问DrawResources目录</li>
+<li>键入source&lt;demo_file&gt;以运行OpenCASCADE提供的演示文件。以下演示文件可用：
+<ul>
+<li>DataExchangeDemo.tcl：演示写入和读取IGES文件的示例操作序列</li>
+<li>ModelingDemo.tcl：演示创建简单形状并以HLR模式显示</li>
+<li>VisualizationDemo.tcl：演示如何使用3d查看器</li>
+<li>cad.tcl：创建类似缩写“cad”的实体形状</li>
+<li>bottle.tcl：创建OCCT教程中的瓶子</li>
+<li>drill.tcl：创建麻花钻头形状</li>
+<li>cutter.tcl：创建铣刀形状</li>
+<li>xde.tcl：演示在xde中创建简单程序集</li>
+<li>materials.tcl：演示三维查看器支持的材质的视觉特性</li>
+<li>raytrace.tcl：演示在3d查看器中使用光线跟踪显示</li>
+<li>dimensions.tcl：演示在三维查看器中使用尺寸、剪裁和封口</li>
+<li>…</li>
+</ul>
+</li>
+</ol>
+<p>Draw is a command interpreter based on TCL and a graphical system used for testing and demonstrating OCCT modeling libraries.</p>
+<p>Draw是一个基于TCL的命令解释器，是一个用于测试和演示OCCT建模库的图形系统。</p>
+<p>Draw can be used interactively to create, display and modify objects such as curves, surfaces and topological shapes.</p>
+<p>可以交互使用Draw来创建、显示和修改对象，如曲线、曲面和拓扑形状。</p>
+<p>Scripts can be written to customize Draw and perform tests. New types of objects and new commands can be added using C++ programming language.</p>
+<p>可以编写脚本来自定义Draw并执行测试。可以使用C++编程语言添加新类型的对象和新命令。</p>
+<p>Draw contains:</p>
+<p>绘图包含：</p>
+<ul>
+<li>
+<p>A command interpreter based on TCL command language.</p>
+</li>
+<li>
+<p>A 2D an 3D graphic viewer with support of operations such as zoom, pan, rotation and full-screen views.</p>
+</li>
+<li>
+<p>An optional set of geometric commands to create and modify curves and surfaces and to use OCCT geometry algorithms.</p>
+</li>
+<li>
+<p>A set of topological commands to create and modify BRep shapes and to use OCCT topology algorithms.</p>
+</li>
+<li>
+<p>A set of graphic commands for view and display operations including Mesh Visualization Service.</p>
+</li>
+<li>
+<p>A set of Application framework commands for handling of files and attributes.</p>
+</li>
+<li>
+<p>A set of Data Exchange commands for translation of files from various formats (IGES,STEP) into OCCT shapes.</p>
+</li>
+<li>
+<p>A set of Shape Healing commands: check of overlapping edges, approximation of a shape to BSpline, etc.</p>
+</li>
+<li>
+<p>基于TCL命令语言的命令解释器。</p>
+</li>
+<li>
+<p>支持缩放、平移、旋转和全屏视图等操作的2D或3D图形查看器。</p>
+</li>
+<li>
+<p>一组可选的几何命令，用于创建和修改曲线和曲面以及使用OCCT几何算法。</p>
+</li>
+<li>
+<p>一组拓扑命令，用于创建和修改BRep形状并使用OCCT拓扑算法。</p>
+</li>
+<li>
+<p>一组用于查看和显示操作的图形命令，包括网格可视化服务。</p>
+</li>
+<li>
+<p>用于处理文件和属性的一组应用程序框架命令。</p>
+</li>
+<li>
+<p>一组数据交换命令，用于将文件从各种格式（IGES、STEP）转换为OCCT形状。</p>
+</li>
+<li>
+<p>一组形状修复命令：检查重叠边、将形状近似为B样条线等。</p>
+</li>
+</ul>
+<p>You can add new custom test harness commands to Draw in order to test or demonstrate a new functionality, which you are developing.</p>
+<p>您可以向Draw添加新的自定义测试线束命令，以测试或演示正在开发的新功能。</p>
+<p>Currently DRAW Test Harness is a single executable called DRAWEXE.</p>
+<p>目前，DRAW测试线束是一个名为DRAWEXE的可执行文件。</p>
+<p>Commands grouped in toolkits can be loaded at run-time thereby implementing dynamically loaded plug-ins. Thus you can work only with the commands that suit your needs adding the commands dynamically without leaving the Test Harness session.</p>
+<p>可以在运行时加载工具包中分组的命令，从而实现动态加载的插件。因此，您只能使用符合您需要的命令，动态添加命令，而无需离开测试线束会话。</p>
+<p>Declaration of available plug-ins is done through special resource file(s). The pload command loads the plug-in in accordance with the specified resource file and activates the commands implemented in the plug-in.</p>
+<p>可用插件的声明是通过特殊的资源文件完成的。pload命令根据指定的资源文件加载插件，并激活插件中实现的命令。</p>
+<p>The whole process of using the plug-in mechanism as well as the instructions for extending Test Harness is described in the Draw Test Harness.</p>
+<p>绘制测试线束中描述了使用插件机制的整个过程以及扩展测试线束的说明。</p>
+<p>Draw Test Harness provides an environment for OCCT automated testing system. Check its Automated Testing System for details.</p>
+<p>绘制测试线束为OCCT自动测试系统提供了一个环境。有关详细信息，请查看其自动测试系统。</p>
+<p>Remarks:</p>
+<ul>
+<li>The DRAWEXE executable is delivered with the installation procedure on Windows platform only.</li>
+<li>To start it, launch DRAWEXE executable from Open CASCADE Technology/Draw Test Harness item of the Start\Programs menu.</li>
+</ul>
+<p>评论：</p>
+<ul>
+<li>DRAWEXE可执行文件仅随Windows平台上的安装过程一起提供。</li>
+<li>要启动它，请从“开始\程序”菜单的“打开CASCADE技术/绘制测试线束”项启动DRAWEXE可执行文件。</li>
+</ul>
+
+        <h2 id="experimenting-with-draw-test-harness-使用拉伸测试线束进行实验"   >
+          <a href="#experimenting-with-draw-test-harness-使用拉伸测试线束进行实验" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#experimenting-with-draw-test-harness-使用拉伸测试线束进行实验"></a> Experimenting with Draw Test Harness 使用拉伸测试线束进行实验</h2>
+      
+
+        <h3 id="running-draw-运行绘图"   >
+          <a href="#running-draw-运行绘图" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#running-draw-运行绘图"></a> Running Draw 运行绘图</h3>
+      
+
+        <h4 id="on-linux"   >
+          <a href="#on-linux" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#on-linux"></a> On Linux:</h4>
+      
+<ul>
+<li>
+<p>If OCCT was built by Code::Blocks use $CASROOT/draw.sh file to launch DRAWEXE executable.</p>
+</li>
+<li>
+<p>如果OCCT是由Code::Blocks构建的，则使用$CASROOT/draw.sh文件启动DRAWEXE可执行文件。</p>
+</li>
+</ul>
+<p>Draw[1]&gt; prompt appears in the command window</p>
+<p>Type pload ALL</p>
+
+        <h4 id="on-windows"   >
+          <a href="#on-windows" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#on-windows"></a> On Windows:</h4>
+      
+<p>Launch Draw executable from Open CASCADE Technology\Test Harness\Draw Test Harness item of the Start\Programs menu or Use $CASROOT\draw.bat file to launch DRAWEXE executable.</p>
+<p>从“开始”\“程序”菜单的“Open CASCADE Technology\Test Harness\Draw Test Harness”项启动Draw可执行文件，或使用$CASROOT\Draw.bat文件启动DRAWEXE可执行文件。</p>
+<p>Draw[1]&gt; prompt appears in the command window</p>
+<p>Type pload ALL</p>
+
+        <h4 id="creating-your-first-geometric-objects"   >
+          <a href="#creating-your-first-geometric-objects" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#creating-your-first-geometric-objects"></a> Creating your first geometric objects</h4>
+      
+<ol>
+<li>In the command window, type axo to create an axonometric view</li>
+<li>Type box b -10 -10 -10 20 20 20 to create a cube b of size 20, parallel to the X Y Z axis and centered on the origin. The cube will be displayed in the axonometric view in wireframe mode.</li>
+<li>Type fit to fill the viewer with the cube</li>
+<li>Type pcylinder c 2 30 to create a cylinder c of radius 2 and height 30. The cylinder will be displayed in addition to the cube</li>
+</ol>
+<!---->
+<ol>
+<li>在命令窗口中，键入axo以创建轴测视图</li>
+<li>键入框b-10-10-10-20 20 20，创建大小为20的立方体b，平行于X Y Z轴并以原点为中心。立方体将以线框模式显示在轴测视图中。</li>
+<li>键入fit以使查看器充满立方体</li>
+<li>键入pcylinder c 2 30以创建半径为2、高度为30的圆柱体c。除了立方体外，还将显示圆柱体</li>
+</ol>
+
+        <h4 id="manipulating-the-view"   >
+          <a href="#manipulating-the-view" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#manipulating-the-view"></a> Manipulating the view</h4>
+      
+<ol>
+<li>Type clear to erase the view</li>
+<li>Type donly c to display the cylinder only</li>
+<li>Type donly b to display the cube only</li>
+<li>Type hlr hlr b to display the cube in the hidden line removal mode</li>
+</ol>
+<!---->
+<ol>
+<li>键入clear清除视图</li>
+<li>键入donly c仅显示气缸</li>
+<li>键入donly b以仅显示立方体</li>
+<li>键入hlr-hlr-b以隐藏线删除模式显示立方体</li>
+</ol>
+
+        <h4 id="running-demonstration-files"   >
+          <a href="#running-demonstration-files" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#running-demonstration-files"></a> Running demonstration files</h4>
+      
+<ol>
+<li>Type cd …/… to return to the root directory</li>
+<li>Type cd samples/tcl to reach the DrawResources directory</li>
+<li>Type source &lt;demo_file&gt; to run the demonstration file provided with Open CASCADE. The following demonstration files are available:
+<ul>
+<li>DataExchangeDemo.tcl: demonstrates sample sequence of operations with writing and reading IGES file</li>
+<li>ModelingDemo.tcl: demonstrates creation of simple shape and displaying it in HLR mode</li>
+<li>VisualizationDemo.tcl: demonstrates use of 3d viewer</li>
+<li>cad.tcl: creates solid shape looking like abbreviation “CAD”</li>
+<li>bottle.tcl: creates bottle as in OCCT Tutorial</li>
+<li>drill.tcl: creates twist drill bit shape</li>
+<li>cutter.tcl: creates milling cutter shape</li>
+<li>xde.tcl: demonstrates creation of simple assembly in XDE</li>
+<li>materials.tcl: demonstrates visual properties of materials supported by 3d viewer</li>
+<li>raytrace.tcl: demonstrates use of ray tracing display in 3d viewer</li>
+<li>dimensions.tcl: demonstrates use of dimensions, clipping, and capping in 3d viewer</li>
+</ul>
+</li>
+</ol>
+<!---->
+<ol>
+<li>键入cd…/。。返回到根目录</li>
+<li>键入cd samples/tcl以访问DrawResources目录</li>
+<li>键入source&lt;demo_file&gt;以运行OpenCASCADE提供的演示文件。以下演示文件可用：
+<ul>
+<li>DataExchangeDemo.tcl：演示写入和读取IGES文件的示例操作序列</li>
+<li>ModelingDemo.tcl：演示创建简单形状并以HLR模式显示</li>
+<li>VisualizationDemo.tcl：演示如何使用3d查看器</li>
+<li>cad.tcl：创建类似缩写“cad”的实体形状</li>
+<li>bottle.tcl：创建OCCT教程中的瓶子</li>
+<li>drill.tcl：创建麻花钻头形状</li>
+<li>cutter.tcl：创建铣刀形状</li>
+<li>xde.tcl：演示在xde中创建简单程序集</li>
+<li>materials.tcl：演示三维查看器支持的材质的视觉特性</li>
+<li>raytrace.tcl：演示在3d查看器中使用光线跟踪显示</li>
+<li>dimensions.tcl：演示在三维查看器中使用尺寸、剪裁和封口</li>
+</ul>
+</li>
+</ol>
+
+        <h4 id="getting-help"   >
+          <a href="#getting-help" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#getting-help"></a> Getting Help</h4>
+      
+<ol>
+<li>
+<p>Type help to see all available commands</p>
+</li>
+<li>
+<p>Type help &lt;command_name&gt; to find out the arguments for a given command</p>
+</li>
+<li>
+<p>键入help以查看所有可用命令</p>
+</li>
+<li>
+<p>键入help&lt;command_name&gt;以查找给定命令的参数</p>
+</li>
+</ol>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://hipposox.github.io">HippoSoX</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://hipposox.github.io/2023/01/12/OCCT-Tutorials-and-Demos-02-Draw-Demo-Scripts/">http://hipposox.github.io/2023/01/12/OCCT-Tutorials-and-Demos-02-Draw-Demo-Scripts/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://hipposox.github.io/tags/Opencascade/">Opencascade</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://hipposox.github.io/tags/OCCT/">OCCT</a></span></div><nav class="post-paginator paginator"><div class="paginator-prev"><a class="paginator-prev__link" href="/2023/01/12/LFS-I-Introduction/"><span class="paginator-prev__icon"><i class="fas fa-angle-left"></i></span><span class="paginator-prev__text">LFS-I-Introduction</span></a></div><div class="paginator-next"><a class="paginator-next__link" href="/2023/01/12/OCCT-Tutorials-and-Demos-01-Novice-Guide/"><span class="paginator-prev__text">OCCT-Tutorials_and_Demos_01:Novice_Guide</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tutorials-and-demos-02"><span class="toc-number">1.</span> <span class="toc-text">
+           Tutorials and Demos 02</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#draw-demo-scripts-%E7%BB%98%E5%88%B6%E6%BC%94%E7%A4%BA%E8%84%9A%E6%9C%AC"><span class="toc-number">1.1.</span> <span class="toc-text">
+           Draw: Demo Scripts 绘制：演示脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#experimenting-with-draw-test-harness-%E4%BD%BF%E7%94%A8%E6%8B%89%E4%BC%B8%E6%B5%8B%E8%AF%95%E7%BA%BF%E6%9D%9F%E8%BF%9B%E8%A1%8C%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.2.</span> <span class="toc-text">
+           Experimenting with Draw Test Harness 使用拉伸测试线束进行实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#running-draw-%E8%BF%90%E8%A1%8C%E7%BB%98%E5%9B%BE"><span class="toc-number">1.2.1.</span> <span class="toc-text">
+           Running Draw 运行绘图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#on-linux"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">
+           On Linux:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#on-windows"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">
+           On Windows:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#creating-your-first-geometric-objects"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">
+           Creating your first geometric objects</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#manipulating-the-view"><span class="toc-number">1.2.1.4.</span> <span class="toc-text">
+           Manipulating the view</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#running-demonstration-files"><span class="toc-number">1.2.1.5.</span> <span class="toc-text">
+           Running demonstration files</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getting-help"><span class="toc-number">1.2.1.6.</span> <span class="toc-text">
+           Getting Help</span></a></li></ol></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">motto</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">18</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">4</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">14</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1449790718&auto=1&height=66"></iframe></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>HippoSoX</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v5.4.2</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.8.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
