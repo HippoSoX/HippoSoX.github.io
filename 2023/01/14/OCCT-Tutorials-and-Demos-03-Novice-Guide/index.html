@@ -1,0 +1,818 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon-16x16.png?v=2.8.0" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon-32x32.png?v=2.8.0" type="image/png" sizes="32x32"><meta name="description" content="Tutorials and Demos 03                             Modeling: Bottle Tutorials         原文链接: https:&#x2F;&#x2F;dev.opencascade.org&#x2F;doc&#x2F;overview&#x2F;html&#x2F;occt__tutorial.html                       Overview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OCCT-Tutorials_and_Demos_03:Novice_Guide">
+<meta property="og:url" content="http://hipposox.github.io/2023/01/14/OCCT-Tutorials-and-Demos-03-Novice-Guide/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Tutorials and Demos 03                             Modeling: Bottle Tutorials         原文链接: https:&#x2F;&#x2F;dev.opencascade.org&#x2F;doc&#x2F;overview&#x2F;html&#x2F;occt__tutorial.html                       Overview">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-14T08:11:52.000Z">
+<meta property="article:modified_time" content="2023-01-14T08:23:21.895Z">
+<meta property="article:author" content="HippoSoX">
+<meta property="article:tag" content="Opencascade">
+<meta property="article:tag" content="OCCT">
+<meta name="twitter:card" content="summary"><title>OCCT-Tutorials_and_Demos_03:Novice_Guide | Hexo</title><link ref="canonical" href="http://hipposox.github.io/2023/01/14/OCCT-Tutorials-and-Demos-03-Novice-Guide/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.8.0"><link rel="stylesheet" href="css/custom.css"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"dark","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: true,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.2"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">erocool</div><div class="header-banner-info__subtitle">You know what</div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">OCCT-Tutorials_and_Demos_03:Novice_Guide</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2023-01-14</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2023-01-14</span></span></div></header><div class="post-body">
+        <h1 id="tutorials-and-demos-03"   >
+          <a href="#tutorials-and-demos-03" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#tutorials-and-demos-03"></a> Tutorials and Demos 03</h1>
+      
+
+        <h2 id="modeling-bottle-tutorials"   >
+          <a href="#modeling-bottle-tutorials" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#modeling-bottle-tutorials"></a> Modeling: Bottle Tutorials</h2>
+      
+<blockquote>
+<p>原文链接: <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://dev.opencascade.org/doc/overview/html/occt__tutorial.html" >https://dev.opencascade.org/doc/overview/html/occt__tutorial.html</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+</blockquote>
+
+        <h3 id="overview-概述"   >
+          <a href="#overview-概述" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#overview-概述"></a> Overview 概述</h3>
+      
+<p>This tutorial will teach you how to use Open CASCADE Technology services to model a 3D object. The purpose of this tutorial is not to describe all Open CASCADE Technology classes but to help you start thinking in terms of Open CASCADE Technology as a tool.</p>
+<p>本教程将教您如何使用OpenCASCADE技术服务来建模3D对象。本教程的目的不是描述所有开放式CASCADE技术类，而是帮助您开始将开放式CASCADE技术作为一种工具进行思考。</p>
+<span id="more"></span>
+
+        <h4 id="prerequisites-先决条件"   >
+          <a href="#prerequisites-先决条件" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#prerequisites-先决条件"></a> Prerequisites 先决条件</h4>
+      
+<p>This tutorial assumes that you have experience in using and setting up C++. From a programming standpoint, Open CASCADE Technology is designed to enhance your C++ tools with 3D modeling classes, methods and functions. The combination of all these resources will allow you to create substantial applications.</p>
+<p>本教程假定您具有使用和设置C<ins>的经验。从编程的角度来看，OpenCASCADE技术旨在通过3D建模类、方法和函数来增强C</ins>工具。所有这些资源的组合将允许您创建大量应用程序。</p>
+
+        <h4 id="the-model-模型"   >
+          <a href="#the-model-模型" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#the-model-模型"></a> The Model 模型</h4>
+      
+<p>To illustrate the use of classes provided in the 3D geometric modeling toolkits, you will create a bottle as shown:</p>
+<p>为了说明3D几何建模工具包中提供的类的使用，您将创建一个瓶子，如下所示：</p>
+<p>In the tutorial we will create, step-by-step, a function that will model a bottle as shown above. You will find the complete source code of this tutorial, including the very function MakeBottle in the distribution of Open CASCADE Technology. The function body is provided in the file samples/qt/Tutorial/src/MakeBottle.cxx.</p>
+<p>在本教程中，我们将逐步创建一个函数，该函数将对如上所示的瓶子进行建模。您将找到本教程的完整源代码，包括OpenCASCADETechnology发行版中的MakeBottle函数。函数体在文件samples/qt/Tutorial/src/MakeBottle.cxx中提供。</p>
+
+        <h4 id="model-specifications-型号规格"   >
+          <a href="#model-specifications-型号规格" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#model-specifications-型号规格"></a> Model Specifications 型号规格</h4>
+      
+<p>We first define the bottle specifications as follows:</p>
+<p>我们首先定义瓶子规格如下：</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Object Parameter 对象参数</th>
+<th>Parameter Name 参数名称</th>
+<th>Parameter Value 参数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bottle height</td>
+<td>MyHeight</td>
+<td>70mm</td>
+</tr>
+<tr>
+<td>Bottle width</td>
+<td>MyWidth</td>
+<td>50mm</td>
+</tr>
+<tr>
+<td>Bottle thickness</td>
+<td>MyThickness</td>
+<td>30mm</td>
+</tr>
+</tbody>
+</table></div>
+<p>In addition, we decide that the bottle’s profile (base) will be centered on the origin of the global Cartesian coordinate system.</p>
+<p>此外，我们决定瓶子的轮廓（底部）将以全局笛卡尔坐标系的原点为中心。</p>
+<p>This modeling requires four steps:</p>
+<ul>
+<li>build the bottle’s Profile</li>
+<li>build the bottle’s Body</li>
+<li>build the Threading on the bottle’s neck</li>
+<li>build the result compound</li>
+</ul>
+<p>该建模需要四个步骤：</p>
+<ul>
+<li>建立瓶子的轮廓</li>
+<li>打造瓶身</li>
+<li>在瓶子的颈部建立螺纹</li>
+<li>构建结果复合</li>
+</ul>
+
+        <h3 id="building-the-profile"   >
+          <a href="#building-the-profile" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#building-the-profile"></a> Building the Profile</h3>
+      
+
+        <h4 id="defining-support-points-定义支持点"   >
+          <a href="#defining-support-points-定义支持点" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#defining-support-points-定义支持点"></a> Defining Support Points 定义支持点</h4>
+      
+<p>To create the bottle’s profile, you first create characteristic points with their coordinates as shown below in the (XOY) plane. These points will be the supports that define the geometry of the profile.</p>
+<p>要创建瓶子的轮廓，首先要在（XOY）平面中创建特征点及其坐标，如下所示。这些点将是定义轮廓几何图形的支撑。</p>
+<p>There are two classes to describe a 3D Cartesian point from its X, Y and Z coordinates in Open CASCADE Technology:</p>
+<ul>
+<li>the primitive geometric gp_Pnt class</li>
+<li>the transient Geom_CartesianPoint class manipulated by handle</li>
+</ul>
+<p>在OpenCASCADE技术中，有两个类可以从X、Y和Z坐标描述三维笛卡尔点：</p>
+<ul>
+<li>原始几何gp_Pnt类</li>
+<li>由handle操纵的瞬时Geom_CartesianPoint类</li>
+</ul>
+<p>A handle is a type of smart pointer that provides automatic memory management. To choose the best class for this application, consider the following:</p>
+<ul>
+<li>gp_Pnt is manipulated by value. Like all objects of its kind, it will have a limited lifetime.</li>
+<li>Geom_CartesianPoint is manipulated by handle and may have multiple references and a long lifetime.</li>
+</ul>
+<p>句柄是一种提供自动内存管理的智能指针。要为此应用程序选择最佳类别，请考虑以下事项：</p>
+<ul>
+<li>gp_Pnt由值操纵。像所有同类物体一样，它的寿命有限。</li>
+<li>Geom_CartesianPoint由句柄操纵，可能具有多个引用和较长的使用寿命。</li>
+</ul>
+<p>Since all the points you will define are only used to create the profile’s curves, an object with a limited lifetime will do. Choose the gp_Pnt class. To instantiate a gp_Pnt object, just specify the X, Y, and Z coordinates of the points in the global Cartesian coordinate system:</p>
+<p>由于您将定义的所有点仅用于创建轮廓的曲线，因此使用寿命有限的对象即可。选择gp_Pnt类。要实例化gp_Pnt对象，只需指定全局笛卡尔坐标系中点的X、Y和Z坐标：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">gp_Pnt <span class="title">aPnt1</span><span class="params">(-myWidth / <span class="number">2.</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function">gp_Pnt <span class="title">aPnt2</span><span class="params">(-myWidth / <span class="number">2.</span>, -myThickness / <span class="number">4.</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function">gp_Pnt <span class="title">aPnt3</span><span class="params">(<span class="number">0</span>, -myThickness / <span class="number">2.</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function">gp_Pnt <span class="title">aPnt4</span><span class="params">(myWidth / <span class="number">2.</span>, -myThickness / <span class="number">4.</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function">gp_Pnt <span class="title">aPnt5</span><span class="params">(myWidth / <span class="number">2.</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>;</span><br></pre></td></tr></table></div></figure>
+<p>Once your objects are instantiated, you can use methods provided by the class to access and modify its data. For example, to get the X coordinate of a point:</p>
+<p>对象实例化后，可以使用类提供的方法访问和修改其数据。例如，要获取点的X坐标：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Standard_Real xValue1 = aPnt1.<span class="built_in">X</span>();</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="profile-defining-the-geometry-纵断面定义几何图形"   >
+          <a href="#profile-defining-the-geometry-纵断面定义几何图形" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#profile-defining-the-geometry-纵断面定义几何图形"></a> Profile: Defining the Geometry 纵断面：定义几何图形</h4>
+      
+<p>With the help of the previously defined points, you can compute a part of the bottle’s profile geometry. As shown in the figure below, it will consist of two segments and one arc.</p>
+<p>借助先前定义的点，可以计算瓶子轮廓几何图形的一部分。如下图所示，它将由两段和一段弧组成。</p>
+<p>To create such entities, you need a specific data structure, which implements 3D geometric objects. This can be found in the Geom package of Open CASCADE Technology. In Open CASCADE Technology a package is a group of classes providing related functionality. The classes have names that start with the name of a package they belong to. For example, Geom_Line and Geom_Circle classes belong to the Geom package. The Geom package implements 3D geometric objects: elementary curves and surfaces are provided as well as more complex ones (such as Bezier and BSpline). However, the Geom package provides only the data structure of geometric entities. You can directly instantiate classes belonging to Geom, but it is easier to compute elementary curves and surfaces by using the GC package. This is because the GC provides two algorithm classes which are exactly what is required for our profile:</p>
+<p>要创建这样的实体，需要一个特定的数据结构，它实现了三维几何对象。这可以在Open CASCADE Technology的Geom包中找到。在开放式CASCADE技术中，包是一组提供相关功能的类。类的名称以所属包的名称开头。例如，Geom_Line和Geom_Circle类属于Geom包。Geom包实现了三维几何对象：提供了基本曲线和曲面以及更复杂的曲线和曲面（如Bezier和BSpline）。然而，Geom包仅提供几何实体的数据结构。您可以直接实例化属于Geom的类，但使用GC包可以更容易地计算基本曲线和曲面。这是因为GC提供了两个算法类，这正是我们的配置文件所需的：</p>
+<ul>
+<li>
+<p>Class GC_MakeSegment to create a segment. One of its constructors allows you to define a segment by two end points P1 and P2</p>
+</li>
+<li>
+<p>Class GC_MakeArcOfCircle to create an arc of a circle. A useful constructor creates an arc from two end points P1 and P3 and going through P2.</p>
+</li>
+<li>
+<p>类GC_MakeSegment以创建段。它的一个构造函数允许您通过两个端点P1和P2定义线段</p>
+</li>
+<li>
+<p>类GC_MakeArcOfCircle以创建圆弧。一个有用的构造器从两个端点P1和P3创建一条弧，并穿过P2。</p>
+</li>
+</ul>
+<p>Both of these classes return a Geom_TrimmedCurve manipulated by handle. This entity represents a base curve (line or circle, in our case), limited between two of its parameter values. For example, circle C is parameterized between 0 and 2PI. If you need to create a quarter of a circle, you create a Geom_TrimmedCurve on C limited between 0 and M_PI/2.</p>
+<p>这两个类都返回由句柄操纵的Geom_TrimedCurve。该实体表示一条基本曲线（在本例中为直线或圆），限制在两个参数值之间。例如，圆C在0和2PI之间被参数化。如果需要创建四分之一的圆，可以在C上创建限制在0和M_PI/2之间的Geom_TrimedCurve。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Handle</span>(Geom_TrimmedCurve) aArcOfCircle = <span class="built_in">GC_MakeArcOfCircle</span>(aPnt2,aPnt3,aPnt4);</span><br><span class="line"><span class="built_in">Handle</span>(Geom_TrimmedCurve) aSegment1    = <span class="built_in">GC_MakeSegment</span>(aPnt1, aPnt2);</span><br><span class="line"><span class="built_in">Handle</span>(Geom_TrimmedCurve) aSegment2    = <span class="built_in">GC_MakeSegment</span>(aPnt4, aPnt5);</span><br></pre></td></tr></table></div></figure>
+<p>All GC classes provide a casting method to obtain a result automatically with a function-like call. Note that this method will raise an exception if construction has failed. To handle possible errors more explicitly, you may use the IsDone and Value methods. For example:</p>
+<p>所有GC类都提供了一个强制转换方法，通过类似函数的调用自动获得结果。请注意，如果构造失败，此方法将引发异常。为了更明确地处理可能的错误，可以使用IsDone和Value方法。例如：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">GC_MakeSegment <span class="title">mkSeg</span> <span class="params">(aPnt1, aPnt2)</span></span>;</span><br><span class="line"><span class="built_in">Handle</span>(Geom_TrimmedCurve) aSegment1;</span><br><span class="line"><span class="keyword">if</span>(mkSegment.<span class="built_in">IsDone</span>())&#123;</span><br><span class="line">    aSegment1 = mkSeg.<span class="built_in">Value</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line"><span class="comment">// handle error</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="profile-defining-the-topology"   >
+          <a href="#profile-defining-the-topology" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#profile-defining-the-topology"></a> Profile: Defining the Topology</h4>
+      
+<p>You have created the support geometry of one part of the profile but these curves are independent with no relations between each other. To simplify the modeling, it would be right to manipulate these three curves as a single entity. This can be done by using the topological data structure of Open CASCADE Technology defined in the TopoDS package: it defines relationships between geometric entities which can be linked together to represent complex shapes. Each object of the TopoDS package, inheriting from the TopoDS_Shape class, describes a topological shape as described below:</p>
+<p>您已经创建了轮廓的一部分的支撑几何图形，但这些曲线是独立的，彼此之间没有任何关系。为了简化建模，将这三条曲线作为单个实体进行操作是正确的。这可以通过使用TopoDS包中定义的开放式CASCADE技术的拓扑数据结构来实现：它定义了几何实体之间的关系，这些几何实体可以链接在一起以表示复杂的形状。TopoDS包的每个对象继承自TopoDS_Shape类，描述如下所述的拓扑形状：</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Open CASCADE Technology Class</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vertex</td>
+<td>TopoDS_Vertex</td>
+<td>Zero dimensional shape corresponding to a point in geometry.<br>与几何图形中的点相对应的零维形状。</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>TopoDS_Edge</td>
+<td>One-dimensional shape corresponding to a curve and bounded by a vertex at each extremity.<br>与曲线相对应的一维形状，并由每个末端的顶点限定。</td>
+</tr>
+<tr>
+<td>Wire</td>
+<td>TopoDS_Wire</td>
+<td>Sequence of edges connected by vertices.<br>由顶点连接的边序列。</td>
+</tr>
+<tr>
+<td>Face</td>
+<td>TopoDS_Face</td>
+<td>Part of a surface bounded by a closed wire(s).<br>由闭合导线界定的曲面的一部分。</td>
+</tr>
+<tr>
+<td>Shell</td>
+<td>TopoDS_Shell</td>
+<td>Set of faces connected by edges.<br>由边连接的一组面。</td>
+</tr>
+<tr>
+<td>Solid</td>
+<td>TopoDS_Solid</td>
+<td>Part of 3D space bounded by Shells.<br>由壳限定的三维空间的一部分。</td>
+</tr>
+<tr>
+<td>CompSolid</td>
+<td>TopoDS_CompSolid</td>
+<td>Set of solids connected by their faces.<br>由面连接的一组实体。</td>
+</tr>
+<tr>
+<td>Compound</td>
+<td>TopoDS_Compound</td>
+<td>Set of any other shapes described above.<br>上述任何其他形状的集合。</td>
+</tr>
+</tbody>
+</table></div>
+<p>Referring to the previous table, to build the profile, you will create:</p>
+<ul>
+<li>Three edges out of the previously computed curves.</li>
+<li>One wire with these edges.</li>
+</ul>
+<p>参考上表，要构建概要文件，您将创建：</p>
+<ul>
+<li>先前计算的曲线中的三条边。</li>
+<li>一根带有这些边的电线。</li>
+</ul>
+<p>However, the TopoDS package provides only the data structure of the topological entities. Algorithm classes available to compute standard topological objects can be found in the BRepBuilderAPI package. To create an edge, you use the BRepBuilderAPI_MakeEdge class with the previously computed curves:</p>
+<p>然而，TopoDS包仅提供拓扑实体的数据结构。可用于计算标准拓扑对象的算法类可以在BRpBuilderAPI包中找到。若要创建边，请使用BRepBuilderAPI_MakeEdge类和先前计算的曲线：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Edge anEdge1 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aSegment1);</span><br><span class="line">TopoDS_Edge anEdge2 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aArcOfCircle);</span><br><span class="line">TopoDS_Edge anEdge3 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aSegment2);</span><br></pre></td></tr></table></div></figure>
+<p>In Open CASCADE Technology, you can create edges in several ways. One possibility is to create an edge directly from two points, in which case the underlying geometry of this edge is a line, bounded by two vertices being automatically computed from the two input points. For example, anEdge1 and anEdge3 could have been computed in a simpler way:</p>
+<p>在OpenCASCADE技术中，您可以通过多种方式创建边。一种可能是直接从两个点创建一条边，在这种情况下，该边的基本几何图形是一条线，由两个顶点自动从两个输入点计算出。例如，anEdge1和anEdge3可以以更简单的方式计算：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Edge anEdge1 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aPnt1, aPnt3);</span><br><span class="line">TopoDS_Edge anEdge2 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aPnt4, aPnt5);</span><br></pre></td></tr></table></div></figure>
+<p>To connect the edges, you need to create a wire with the BRepBuilderAPI_MakeWire class. There are two ways of building a wire with this class:</p>
+<ul>
+<li>directly from one to four edges</li>
+<li>by adding other wire(s) or edge(s) to an existing wire (this is explained later in this tutorial)</li>
+</ul>
+<p>When building a wire from less than four edges, as in the present case, you can use the constructor directly as follows:</p>
+<p>要连接边，需要使用BRepBuilderAPI_MakeWire类创建导线。有两种方法可以使用该类构建导线：</p>
+<ul>
+<li>直接从一条边到四条边</li>
+<li>通过将其他导线或边添加到现有导线中（这将在本教程后面解释）</li>
+</ul>
+<p>当从少于四条边构建导线时，如本例所示，可以直接使用构造函数，如下所示：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Wire aWire = <span class="built_in">BRepBuilderAPI_MakeWire</span>(anEdge1, anEdge2, anEdge3);</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="profile-completing-the-profile-配置文件完成配置文件"   >
+          <a href="#profile-completing-the-profile-配置文件完成配置文件" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#profile-completing-the-profile-配置文件完成配置文件"></a> Profile: Completing the Profile 配置文件：完成配置文件</h4>
+      
+<p>Once the first part of your wire is created you need to compute the complete profile. A simple way to do this is to:</p>
+<ul>
+<li>compute a new wire by reflecting the existing one.</li>
+<li>add the reflected wire to the initial one.</li>
+</ul>
+<p>创建导线的第一部分后，需要计算整个轮廓。一个简单的方法是：</p>
+<ul>
+<li>通过反映现有导线来计算新导线。</li>
+<li>将反射线添加到初始线。</li>
+</ul>
+<p>To apply a transformation on shapes (including wires), you first need to define the properties of a 3D geometric transformation by using the gp_Trsf class. This transformation can be a translation, a rotation, a scale, a reflection, or a combination of these. In our case, we need to define a reflection with respect to the X axis of the global coordinate system. An axis, defined with the gp_Ax1 class, is built out of a point and has a direction (3D unitary vector). There are two ways to define this axis. The first way is to define it from scratch, using its geometric definition:</p>
+<ul>
+<li>X axis is located at (0, 0, 0) - use the gp_Pnt class.</li>
+<li>X axis direction is (1, 0, 0) - use the gp_Dir class. A gp_Dir instance is created out of its X, Y and Z coordinates.</li>
+</ul>
+<p>要在形状（包括导线）上应用变换，首先需要使用gp_Trsf类定义三维几何变换的属性。这种转换可以是平移、旋转、缩放、反射或这些的组合。在我们的例子中，我们需要定义相对于全局坐标系X轴的反射。用gp_Ax1类定义的轴由一个点构建，并具有一个方向（3D酉向量）。有两种方法可以定义此轴。第一种方法是使用其几何定义从头定义：</p>
+<ul>
+<li>X轴位于(0，0，0) - 使用gp_Pnt类。</li>
+<li>X轴方向为(1，0，0) - 使用gp_Dir类。gp_Dir实例是根据其X、Y和Z坐标创建的。</li>
+</ul>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">gp_Pnt <span class="title">aOrigin</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function">gp_Dir <span class="title">xDir</span><span class="params">(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="function">gp_Ax1 <span class="title">xAxis</span><span class="params">(aOrigin, xDir)</span></span>;</span><br></pre></td></tr></table></div></figure>
+<p>The second and simplest way is to use the geometric constants defined in the gp package (origin, main directions and axis of the global coordinate system). To get the X axis, just call the gp::OX method:</p>
+<p>第二种也是最简单的方法是使用gp包中定义的几何常数（原点、主方向和全局坐标系的轴）。要获得X轴，只需调用gp:：OX方法：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gp_Ax1 xAxis = gp::<span class="built_in">OX</span>();</span><br></pre></td></tr></table></div></figure>
+<p>As previously explained, the 3D geometric transformation is defined with the gp_Trsf class. There are two different ways to use this class:</p>
+<ul>
+<li>by defining a transformation matrix by all its values</li>
+<li>by using the appropriate methods corresponding to the required transformation (SetTranslation for a translation, SetMirror for a reflection, etc.): the matrix is automatically computed.</li>
+</ul>
+<p>如前所述，3D几何变换是用gp_Trsf类定义的。有两种不同的方法可以使用此类：</p>
+<ul>
+<li>通过定义变换矩阵的所有值</li>
+<li>通过使用与所需转换相对应的适当方法（转换时使用SetTranslation，反射时使用SetMirror等）：自动计算矩阵。</li>
+</ul>
+<p>Since the simplest approach is always the best one, you should use the SetMirror method with the axis as the center of symmetry.</p>
+<p>因为最简单的方法总是最好的，所以应该使用以轴为对称中心的SetMirror方法。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gp_Trsf aTrsf;</span><br><span class="line">aTrsf.<span class="built_in">SetMirror</span>(xAxis);</span><br></pre></td></tr></table></div></figure>
+<p>You now have all necessary data to apply the transformation with the BRepBuilderAPI_Transform class by specifying:</p>
+<ul>
+<li>the shape on which the transformation must be applied.</li>
+<li>the geometric transformation</li>
+</ul>
+<p>现在，您已经拥有了所有必要的数据，可以通过指定以下内容来使用BRpBuilderAPI_Transform类应用转换：</p>
+<ul>
+<li>必须应用变换的形状。</li>
+<li>几何变换</li>
+</ul>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BRepBuilderAPI_Transform <span class="title">aBRepTrsf</span><span class="params">(aWire, aTrsf)</span></span>;</span><br></pre></td></tr></table></div></figure>
+<p>BRepBuilderAPI_Transform does not modify the nature of the shape: the result of the reflected wire remains a wire. But the function-like call or the BRepBuilderAPI_Transform::Shape method returns a TopoDS_Shape object:</p>
+<p>BRepBuilderAPI_Transform不会修改形状的性质：反射线的结果仍然是一条线。但是类似函数的调用或BRpBuilderAPI_Transform:：Shape方法返回一个TopoDS_Shape对象：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Shape aMirroredShape = aBRepTrsf.<span class="built_in">Shape</span>();</span><br></pre></td></tr></table></div></figure>
+<p>What you need is a method to consider the resulting reflected shape as a wire. The TopoDS global functions provide this kind of service by casting a shape into its real type. To cast the transformed wire, use the TopoDS::Wire method.</p>
+<p>您需要的是将生成的反射形状视为导线的方法。TopoDS全局函数通过将形状转换为其真实类型来提供此类服务。要铸造变换的导线，请使用TopoDS:：wire方法。</p>
+<p>The bottle’s profile is almost finished. You have created two wires: aWire and aMirroredWire. You need to concatenate them to compute a single shape. To do this, you use the BRepBuilderAPI_MakeWire class as follows:</p>
+<ul>
+<li>create an instance of BRepBuilderAPI_MakeWire.</li>
+<li>add all edges of the two wires by using the Add method on this object.</li>
+</ul>
+<p>瓶子的轮廓几乎完成了。您已经创建了两条导线：aWire和aMirroredWire。您需要连接它们以计算单个形状。为此，可以按如下方式使用BRepBuilderAPI_MakeWire类：</p>
+<ul>
+<li>创建BRepBuilderAPI_MakeWire的实例。</li>
+<li>通过在此对象上使用add方法添加两条导线的所有边。</li>
+</ul>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">BRepBuilderAPI_MakeWire mkWire;</span><br><span class="line">mkWire.<span class="built_in">Add</span>(aWire);</span><br><span class="line">mkWire.<span class="built_in">Add</span>(aMirroredWire);</span><br><span class="line">TopoDS_Wire myWireProfile = mkWire.<span class="built_in">Wire</span>();</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="building-the-body-构建身体"   >
+          <a href="#building-the-body-构建身体" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#building-the-body-构建身体"></a> Building the Body 构建身体</h3>
+      
+
+        <h4 id="prism-the-profile-棱镜轮廓"   >
+          <a href="#prism-the-profile-棱镜轮廓" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#prism-the-profile-棱镜轮廓"></a> Prism the Profile 棱镜轮廓</h4>
+      
+<p>To compute the main body of the bottle, you need to create a solid shape. The simplest way is to use the previously created profile and sweep it along a direction. The Prism functionality of Open CASCADE Technology is the most appropriate for that task. It accepts a shape and a direction as input and generates a new shape according to the following rules:</p>
+<p>要计算瓶子的主体，需要创建一个实体形状。最简单的方法是使用先前创建的轮廓并沿某个方向扫掠。Open CASCADE Technology的Prism功能最适合该任务。它接受形状和方向作为输入，并根据以下规则生成新形状：</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Generates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vertex</td>
+<td>Edge</td>
+</tr>
+<tr>
+<td>Edge</td>
+<td>Face</td>
+</tr>
+<tr>
+<td>Wire</td>
+<td>Shell</td>
+</tr>
+<tr>
+<td>Face</td>
+<td>Solid</td>
+</tr>
+<tr>
+<td>Shell</td>
+<td>Compound of Solids</td>
+</tr>
+</tbody>
+</table></div>
+<p>您当前的配置文件是一条导线。参考“形状/生成”表，需要计算其线的面以生成实体。要创建面，请使用BRepBuilderAPI_MakeFace类。如前所述，面是由闭合导线界定的曲面的一部分。通常，BRepBuilderAPI_MakeFace计算曲面和一条或多条导线的面。当导线位于平面上时，将自动计算曲面。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Face myFaceProfile = <span class="built_in">BRepBuilderAPI_MakeFace</span>(myWireProfile);</span><br></pre></td></tr></table></div></figure>
+<p>The BRepPrimAPI package provides all the classes to create topological primitive constructions: boxes, cones, cylinders, spheres, etc. Among them is the BRepPrimAPI_MakePrism class. As specified above, the prism is defined by:</p>
+<ul>
+<li>the basis shape to sweep;</li>
+<li>a vector for a finite prism or a direction for finite and infinite prisms.</li>
+</ul>
+<p>BRepPrimAPI包提供了创建拓扑图元构造的所有类：长方体、圆锥体、圆柱体、球体等。其中包括BRepPrimAPI_MakePrism类。如上所述，棱镜的定义如下：</p>
+<ul>
+<li>要扫描的基本形状；</li>
+<li>有限棱镜的矢量或有限和无限棱镜的方向。</li>
+</ul>
+<p>You want the solid to be finite, swept along the Z axis and to be myHeight height. The vector, defined with the gp_Vec class on its X, Y and Z coordinates, is:</p>
+<p>您希望实体是有限的，沿Z轴扫掠，高度为myHeight。在其X、Y和Z坐标上用gp_Vec类定义的矢量为：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">gp_Vec <span class="title">aPrismVec</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, myHeight)</span></span>;</span><br></pre></td></tr></table></div></figure>
+<p>All the necessary data to create the main body of your bottle is now available. Just apply the BRepPrimAPI_MakePrism class to compute the solid:</p>
+<p>创建瓶子主体所需的所有数据现在都可用。只需应用BRepPrimAPI_MakePrism类来计算实体：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Shape myBody = <span class="built_in">BRepPrimAPI_MakePrism</span>(myFaceProfile, aPrismVec);</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="applying-fillets-应用圆角"   >
+          <a href="#applying-fillets-应用圆角" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#applying-fillets-应用圆角"></a> Applying Fillets 应用圆角</h4>
+      
+<p>The edges of the bottle’s body are very sharp. To replace them by rounded faces, you use the Fillet functionality of Open CASCADE Technology. For our purposes, we will specify that fillets must be:</p>
+<ul>
+<li>applied on all edges of the shape</li>
+<li>have a radius of myThickness / 12</li>
+</ul>
+<p>瓶身的边缘非常锋利。要用圆角面替换它们，可以使用Open CASCADE Technology的圆角功能。出于我们的目的，我们将指定圆角必须：</p>
+<ul>
+<li>应用于形状的所有边缘</li>
+<li>半径为myThickness/12</li>
+</ul>
+<p>To apply fillets on the edges of a shape, you use the BRepFilletAPI_MakeFillet class. This class is normally used as follows:</p>
+<ul>
+<li>Specify the shape to be filleted in the BRepFilletAPI_MakeFillet constructor.</li>
+<li>Add the fillet descriptions (an edge and a radius) using the Add method (you can add as many edges as you need).</li>
+<li>Ask for the resulting filleted shape with the Shape method.</li>
+</ul>
+<p>要在形状的边上应用圆角，请使用BRepFilletAPI_MakeFillet类。此类通常使用如下：</p>
+<ul>
+<li>在BRepFilletAPI_MakeFillet构造函数中指定要圆角的形状。</li>
+<li>使用Add方法添加圆角描述（边和半径）（可以根据需要添加任意多条边）。</li>
+<li>使用shape方法询问生成的圆角形状。</li>
+</ul>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BRepFilletAPI_MakeFillet <span class="title">mkFillet</span><span class="params">(myBody)</span></span>;</span><br></pre></td></tr></table></div></figure>
+<p>To add the fillet description, you need to know the edges belonging to your shape. The best solution is to explore your solid to retrieve its edges. This kind of functionality is provided with the TopExp_Explorer class, which explores the data structure described in a TopoDS_Shape and extracts the sub-shapes you specifically need. Generally, this explorer is created by providing the following information:</p>
+<ul>
+<li>the shape to explore</li>
+<li>the type of sub-shapes to be found. This information is given with the TopAbs_ShapeEnum enumeration.</li>
+</ul>
+<p>要添加圆角描述，需要知道属于形状的边。最佳解决方案是探索实体以检索其边缘。TopExp_Explorer类提供了这种功能，它探索TopoShape中描述的数据结构，并提取您特别需要的子形状。通常，通过提供以下信息创建此资源管理器：</p>
+<ul>
+<li>要探索的形状</li>
+<li>要查找的子形状的类型。此信息与TopAbs_ShapeEnum枚举一起提供。</li>
+</ul>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">TopExp_Explorer <span class="title">anEdgeExplorer</span><span class="params">(myBody, TopAbs_EDGE)</span></span>;</span><br></pre></td></tr></table></div></figure>
+<p>An explorer is usually applied in a loop by using its three main methods:</p>
+<ul>
+<li>More() to know if there are more sub-shapes to explore.</li>
+<li>Current() to know which is the currently explored sub-shape (used only if the More() method returns true).</li>
+<li>Next() to move onto the next sub-shape to explore.</li>
+</ul>
+<p>资源管理器通常通过使用其三种主要方法应用于循环中：<br />
+-More()以了解是否有更多子形状需要探索。<br />
+-Current()以了解当前探索的子形状（仅当More()方法返回true时使用）。<br />
+-Next()移动到要探索的下一个子形状。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(anEdgeExplorer.<span class="built_in">More</span>())&#123;</span><br><span class="line">    TopoDS_Edge anEdge = TopoDS::<span class="built_in">Edge</span>(anEdgeExplorer.<span class="built_in">Current</span>());</span><br><span class="line">    <span class="comment">//Add edge to fillet algorithm</span></span><br><span class="line">    ...</span><br><span class="line">    anEdgeExplorer.<span class="built_in">Next</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<p>In the explorer loop, you have found all the edges of the bottle shape. Each one must then be added in the BRepFilletAPI_MakeFillet instance with the Add() method. Do not forget to specify the radius of the fillet along with it.</p>
+<p>在资源管理器循环中，您已找到瓶子形状的所有边缘。然后必须使用Add（）方法在BRepFilletAPI_MakeFillet实例中添加每一个。不要忘记指定圆角的半径。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkFillet.<span class="built_in">Add</span>(myThickness / <span class="number">12.</span>, anEdge);</span><br></pre></td></tr></table></div></figure>
+<p>Once this is done, you perform the last step of the procedure by asking for the filleted shape.</p>
+<p>完成此操作后，通过请求圆角形状来执行过程的最后一步。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myBody = mkFillet.<span class="built_in">Shape</span>();</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="adding-the-neck-添加颈部"   >
+          <a href="#adding-the-neck-添加颈部" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#adding-the-neck-添加颈部"></a> Adding the Neck 添加颈部</h4>
+      
+<p>To add a neck to the bottle, you will create a cylinder and fuse it to the body. The cylinder is to be positioned on the top face of the body with a radius of myThickness / 4. and a height of myHeight / 10.</p>
+<p>若要在瓶子上添加颈部，您将创建一个圆柱体并将其熔合到身体上。圆柱体将位于主体的顶面上，半径为myThickness/4。高度为myHeight/10。</p>
+<p>To position the cylinder, you need to define a coordinate system with the gp_Ax2 class defining a right-handed coordinate system from a point and two directions - the main (Z) axis direction and the X direction (the Y direction is computed from these two). To align the neck with the center of the top face, being in the global coordinate system (0, 0, myHeight), with its normal on the global Z axis, your local coordinate system can be defined as follows:</p>
+<p>要定位圆柱体，需要使用gp_Ax2类定义一个坐标系，该类从一个点和两个方向（主（Z）轴方向和X方向）定义右手坐标系（Y方向是从这两个方向计算的）。若要将颈部与顶面的中心对齐（位于全局坐标系（0，0，myHeight）中），其法线位于全局Z轴上，可以按如下方式定义局部坐标系：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">gp_Pnt <span class="title">neckLocation</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, myHeight)</span></span>;</span><br><span class="line">gp_Dir neckAxis = gp::<span class="built_in">DZ</span>();</span><br><span class="line"><span class="function">gp_Ax2 <span class="title">neckAx2</span><span class="params">(neckLocation, neckAxis)</span></span>;</span><br></pre></td></tr></table></div></figure>
+<p>To create a cylinder, use another class from the primitives construction package: the BRepPrimAPI_MakeCylinder class. The information you must provide is:</p>
+<ul>
+<li>the coordinate system where the cylinder will be located;</li>
+<li>the radius and height.</li>
+</ul>
+<p>要创建圆柱体，请使用基本体构建包中的另一个类：BRepPrimAPI_MakeCylinder类。您必须提供的信息是：</p>
+<ul>
+<li>圆柱体将位于的坐标系；</li>
+<li>半径和高度。</li>
+</ul>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Standard_Real myNeckRadius = myThickness / <span class="number">4.</span>;</span><br><span class="line">Standard_Real myNeckHeight = myHeight / <span class="number">10</span>;</span><br><span class="line"><span class="function">BRepPrimAPI_MakeCylinder <span class="title">MKCylinder</span><span class="params">(neckAx2, myNeckRadius, myNeckHeight)</span></span>;</span><br><span class="line">TopoDS_Shape myNeck = MKCylinder.<span class="built_in">Shape</span>();</span><br></pre></td></tr></table></div></figure>
+<p>You now have two separate parts: a main body and a neck that you need to fuse together. The BRepAlgoAPI package provides services to perform Boolean operations between shapes, and especially: common (Boolean intersection), cut (Boolean subtraction) and fuse (Boolean union). Use BRepAlgoAPI_Fuse to fuse the two shapes:</p>
+<p>你现在有两个独立的部分：一个主体和一个颈部，你需要将它们融合在一起。BRepAlgoAPI包提供了在形状之间执行布尔运算的服务，尤其是：公共（布尔交集）、截断（布尔减法）和融合（布尔并集）。使用BRepAlgoAPI_Fuse融合两个形状：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myBody = <span class="built_in">BRepAlgoAPI_Fuse</span>(myBody, myNeck);</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="creating-a-hollowed-solid-创建空心实体"   >
+          <a href="#creating-a-hollowed-solid-创建空心实体" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#creating-a-hollowed-solid-创建空心实体"></a> Creating a Hollowed Solid 创建空心实体</h4>
+      
+<p>Since a real bottle is used to contain liquid material, you should now create a hollowed solid from the bottle’s top face. In Open CASCADE Technology, a hollowed solid is called a Thick Solid and is internally computed as follows:</p>
+<ul>
+<li>Remove one or more faces from the initial solid to obtain the first wall W1 of the hollowed solid.</li>
+<li>Create a parallel wall W2 from W1 at a distance D. If D is positive, W2 will be outside the initial solid, otherwise it will be inside.</li>
+<li>Compute a solid from the two walls W1 and W2.</li>
+</ul>
+<p>因为真正的瓶子是用来装液体材料的，所以现在应该从瓶子的顶面创建一个中空的固体。在开放式CASCADE技术中，空心实体称为厚实体，内部计算如下：</p>
+<ul>
+<li>从初始实体移除一个或多个面以获得中空实体的第一壁W1。</li>
+<li>在距离D处从W1创建平行墙W2。如果D为正，W2将位于初始实体的外部，否则将位于内部。</li>
+<li>从两个壁W1和W2计算实体。</li>
+</ul>
+<p>To compute a thick solid, you create an instance of the BRepOffsetAPI_MakeThickSolid class by giving the following information:</p>
+<ul>
+<li>The shape, which must be hollowed.</li>
+<li>The tolerance used for the computation (tolerance criterion for coincidence in generated shapes).</li>
+<li>The thickness between the two walls W1 and W2 (distance D).</li>
+<li>The face(s) to be removed from the original solid to compute the first wall W1.</li>
+</ul>
+<p>要计算厚实体，请通过提供以下信息创建BRepOffsetAPI_MakeThickSolid类的实例：</p>
+<ul>
+<li>必须挖空的形状。</li>
+<li>用于计算的公差（生成形状中重合的公差标准）。</li>
+<li>两个壁W1和W2之间的厚度（距离D）。</li>
+<li>要从原始实体移除的面以计算第一壁W1。</li>
+</ul>
+<p>The challenging part in this procedure is to find the face to remove from your shape - the top face of the neck, which:</p>
+<ul>
+<li>has a plane (planar surface) as underlying geometry;</li>
+<li>is the highest face (in Z coordinates) of the bottle.</li>
+</ul>
+<p>这个过程中最具挑战性的部分是找到要从你的形状中移除的面部——颈部的上表面，这：</p>
+<ul>
+<li>具有作为基础几何体的平面（平面）；</li>
+<li>是瓶子的最高面（在Z坐标中）。</li>
+</ul>
+<p>To find the face with such characteristics, you will once again use an explorer to iterate on all the bottle’s faces to find the appropriate one.</p>
+<p>要找到具有此类特征的面部，您将再次使用浏览器对所有瓶子的面部进行迭代，以找到合适的面部。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(TopExp_Explorer <span class="built_in">aFaceExplorer</span>(myBody, TopAbs_FACE) ; aFaceExplorer.<span class="built_in">More</span>() ; aFaceExplorer.<span class="built_in">Next</span>())&#123;</span><br><span class="line">    TopoDS_Face aFace = TopoDS::<span class="built_in">Face</span>(aFaceExplorer.<span class="built_in">Current</span>());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<p>For each detected face, you need to access the geometric properties of the shape: use the BRep_Tool class for that. The most commonly used methods of this class are:</p>
+<ul>
+<li>Surface to access the surface of a face;</li>
+<li>Curve to access the 3D curve of an edge;</li>
+<li>Point to access the 3D point of a vertex.</li>
+</ul>
+<p>对于每个检测到的面，您需要访问形状的几何属性：为此使用BRep_Tool类。此类最常用的方法有：</p>
+<ul>
+<li>访问面表面的表面；</li>
+<li>访问边缘的3D曲线的曲线；</li>
+<li>点以访问顶点的三维点。</li>
+</ul>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Handle</span>(Geom_Surface) aSurface = BRep_Tool::<span class="built_in">Surface</span>(aFace);</span><br></pre></td></tr></table></div></figure>
+<p>As you can see, the BRep_Tool::Surface method returns an instance of the Geom_Surface class manipulated by handle. However, the Geom_Surface class does not provide information about the real type of the object aSurface, which could be an instance of Geom_Plane, Geom_CylindricalSurface, etc. All objects manipulated by handle, like Geom_Surface, inherit from the Standard_Transient class which provides two very useful methods concerning types:</p>
+<ul>
+<li>DynamicType to know the real type of the object</li>
+<li>IsKind to know if the object inherits from one particular type</li>
+</ul>
+<p>如您所见，BRep_Tool:：Surface方法返回由句柄操纵的Geom_Surface类的实例。然而，Geom_Surface类不提供有关对象aSurface的真实类型的信息，该类型可能是Geom_Plane、Geom_CylindricalSurface等的实例。所有由句柄操纵的对象（如Geom_Surface）都继承自Standard_Transient类，后者提供了两种非常有用的类型相关方法：</p>
+<ul>
+<li>DynamicType以了解对象的真实类型</li>
+<li>IsKind以了解对象是否继承自一个特定类型</li>
+</ul>
+<p>DynamicType returns the real type of the object, but you need to compare it with the existing known types to determine whether aSurface is a plane, a cylindrical surface or some other type. To compare a given type with the type you seek, use the STANDARD_TYPE macro, which returns the type of a class:</p>
+<p>DynamicType返回对象的真实类型，但需要将其与现有已知类型进行比较，以确定aSurface是平面、柱面还是其他类型。要将给定类型与所查找的类型进行比较，请使用STANDARD_type宏，该宏返回类的类型：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(aSurface-&gt;<span class="built_in">DynamicType</span>() == <span class="built_in">STANDARD_TYPE</span>(Geom_Plane))&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<p>If this comparison is true, you know that the aSurface real type is Geom_Plane. You can then convert it from Geom_Surface to Geom_Plane by using the DownCast() method provided by each class inheriting Standard_Transient. As its name implies, this static method is used to downcast objects to a given type with the following syntax:</p>
+<p>如果此比较为真，则知道aSurface实型为Geom_Plane。然后，可以使用继承Standard_Transient的每个类提供的DownCast（）方法将其从Geom_Surface转换为Geom_Plane。顾名思义，此静态方法用于使用以下语法将对象向下转换为给定类型：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Handle</span>(Geom_Plane) aPlane = <span class="built_in">Handle</span>(Geom_Plane)::<span class="built_in">DownCast</span>(aSurface);</span><br></pre></td></tr></table></div></figure>
+<p>Remember that the goal of all these conversions is to find the highest face of the bottle lying on a plane. Suppose that you have these two global variables:</p>
+<p>请记住，所有这些转换的目标都是找到位于平面上的瓶子的最高面。假设您有以下两个全局变量：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Face faceToRemove;</span><br><span class="line">Standard_Real zMax = <span class="number">-1</span>;</span><br></pre></td></tr></table></div></figure>
+<p>You can easily find the plane whose origin is the biggest in Z knowing that the location of the plane is given with the Geom_Plane::Location method. For example:</p>
+<p>您可以很容易地找到原点在Z方向上最大的平面，因为知道平面的位置是通过Geom_plane:：location方法给出的。例如：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gp_Pnt aPnt = aPlane-&gt;<span class="built_in">Location</span>();</span><br><span class="line">Standard_Real aZ = aPnt.<span class="built_in">Z</span>();</span><br><span class="line"><span class="keyword">if</span>(aZ &gt; zMax)&#123;</span><br><span class="line">    zMax = aZ;</span><br><span class="line">    faceToRemove = aFace;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<p>You have now found the top face of the neck. Your final step before creating the hollowed solid is to put this face in a list. Since more than one face can be removed from the initial solid, the BRepOffsetAPI_MakeThickSolid constructor takes a list of faces as arguments. Open CASCADE Technology provides many collections for different kinds of objects: see TColGeom package for collections of objects from Geom package, TColgp package for collections of objects from gp package, etc. The collection for shapes can be found in the TopTools package. As BRepOffsetAPI_MakeThickSolid requires a list, use the TopTools_ListOfShape class.</p>
+<p>现在您已经找到了颈部的顶面。创建空心实体之前的最后一步是将此面放入列表中。由于可以从初始实体中删除多个面，因此BRepOffsetAPI_MakeThickSolid构造函数将面列表作为参数。OpenCASCADETechnology为不同类型的对象提供了许多集合：参见TColGeom包获取Geom包中的对象集合，参见TColgp包获取gp包中对象集合等。形状集合可以在TopTools包中找到。由于BRepOffsetAPI_MakeThickSolid需要列表，请使用TopTools_ListOfShape类。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TopTools_ListOfShape facesToRemove;</span><br><span class="line">facesToRemove.<span class="built_in">Append</span>(faceToRemove);</span><br></pre></td></tr></table></div></figure>
+<p>All the necessary data are now available so you can create your hollowed solid by calling the BRepOffsetAPI_MakeThickSolid MakeThickSolidByJoin method:</p>
+<p>所有必要的数据现在都可用，因此您可以通过调用BRepOffsetAPI_MakeThickSolid MakeThickSolidByJoin方法来创建空心实体：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BRepOffsetAPI_MakeThickSolid aSolidMaker;</span><br><span class="line">aSolidMaker.<span class="built_in">MakeThickSolidByJoin</span>(myBody, facesToRemove, -myThickness / <span class="number">50</span>, <span class="number">1.e-3</span>);</span><br><span class="line">myBody = aSolidMaker.<span class="built_in">Shape</span>();</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="building-the-threading-构建线程"   >
+          <a href="#building-the-threading-构建线程" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#building-the-threading-构建线程"></a> Building the Threading 构建线程</h3>
+      
+
+        <h4 id="creating-surfaces-创建曲面"   >
+          <a href="#creating-surfaces-创建曲面" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#creating-surfaces-创建曲面"></a> Creating Surfaces 创建曲面</h4>
+      
+<p>Up to now, you have learned how to create edges out of 3D curves. You will now learn how to create an edge out of a 2D curve and a surface. To learn this aspect of Open CASCADE Technology, you will build helicoidal profiles out of 2D curves on cylindrical surfaces. The theory is more complex than in previous steps, but applying it is very simple. As a first step, you compute these cylindrical surfaces. You are already familiar with the curves of the Geom package. Now you can create a cylindrical surface (Geom_CylindricalSurface) using:</p>
+<ul>
+<li>a coordinate system;</li>
+<li>a radius.</li>
+</ul>
+<p>Using the same coordinate system neckAx2 used to position the neck, you create two cylindrical surfaces Geom_CylindricalSurface with the following radii:</p>
+<p>到目前为止，您已经学习了如何从三维曲线创建边。现在，您将学习如何从二维曲线和曲面创建边。为了学习OpenCASCADE技术的这一方面，您将在圆柱表面上用2D曲线构建螺旋轮廓。该理论比前面的步骤更复杂，但应用起来非常简单。作为第一步，计算这些柱面。您已经熟悉Geom包的曲线。现在，可以使用以下方法创建圆柱曲面（Geom_CylindricalSurface）：</p>
+<ul>
+<li>坐标系；</li>
+<li>半径。</li>
+</ul>
+<p>使用用于定位颈部的同一坐标系neckAx2，可以创建具有以下半径的两个圆柱曲面Geom_CylindricalSurface：</p>
+<p>Notice that one of the cylindrical surfaces is smaller than the neck. There is a good reason for this: after the thread creation, you will fuse it with the neck. So, we must make sure that the two shapes remain in contact.</p>
+<p>请注意，其中一个圆柱形曲面小于颈部。这有一个很好的原因：创建线程后，您将将其与颈部融合。因此，我们必须确保两个形状保持接触。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Handle</span>(Geom_CylindricalSurface) aCyl1 = <span class="keyword">new</span> <span class="built_in">Geom_CylindricalSurface</span>(neckAx2, myNeckRadius * <span class="number">0.99</span>);</span><br><span class="line"> </span><br><span class="line"><span class="built_in">Handle</span>(Geom_CylindricalSurface) aCyl2 = <span class="keyword">new</span> <span class="built_in">Geom_CylindricalSurface</span>(neckAx2, myNeckRadius * <span class="number">1.05</span>);</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="defining-2d-curves-定义二维曲线"   >
+          <a href="#defining-2d-curves-定义二维曲线" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#defining-2d-curves-定义二维曲线"></a> Defining 2D Curves 定义二维曲线</h4>
+      
+<p>To create the neck of the bottle, you made a solid cylinder based on a cylindrical surface. You will create the profile of threading by creating 2D curves on such a surface. All geometries defined in the Geom package are parameterized. This means that each curve or surface from Geom is computed with a parametric equation. A Geom_CylindricalSurface surface is defined with the following parametric equation:</p>
+<p>为了创建瓶子的颈部，您基于圆柱形表面制作了一个实心圆柱体。您将通过在这样的曲面上创建二维曲线来创建螺纹轮廓。Geom包中定义的所有几何图形都是参数化的。这意味着Geom中的每条曲线或曲面都是用参数方程计算的。Geom_CylindricalSurface曲面由以下参数方程定义：</p>
+<p>P(U, V) = O + R * (cos(U) * xDir + sin(U) * yDir) + V * zDir, where :</p>
+<ul>
+<li>P is the point defined by parameters (U, V).</li>
+<li>O, *Dir, yDir and zDir are respectively the origin, the X direction, Y direction and Z direction of the cylindrical surface local coordinate system.</li>
+<li>R is the radius of the cylindrical surface.</li>
+<li>U range is [0, 2PI] and V is infinite.</li>
+</ul>
+<p>P（U，V）=O+R*（cos（U）*xDir+sin（U）<em>yDir）+V</em>zDir，其中：</p>
+<ul>
+<li>P是由参数（U，V）定义的点。</li>
+<li>O、 *Dir、yDir和zDir分别是柱面局部坐标系的原点、X方向、Y方向和Z方向。</li>
+<li>R是柱面的半径。</li>
+<li>U范围为[0，2PI]，V为无穷大。</li>
+</ul>
+<p>The advantage of having such parameterized geometries is that you can compute, for any (U, V) parameters of the surface:</p>
+<ul>
+<li>the 3D point;</li>
+<li>the derivative vectors of order 1, 2 to N at this point.</li>
+</ul>
+<p>具有此类参数化几何体的优点在于，可以计算曲面的任何（U，V）参数：</p>
+<ul>
+<li>3D点；</li>
+<li>此时阶数为1、2至N的导数向量。</li>
+</ul>
+<p>There is another advantage of these parametric equations: you can consider a surface as a 2D parametric space defined with a (U, V) coordinate system. For example, consider the parametric ranges of the neck’s surface:</p>
+<p>这些参数化方程还有另一个优点：可以将曲面视为使用（U，V）坐标系定义的二维参数化空间。例如，考虑颈部曲面的参数化范围：</p>
+<p>Suppose that you create a 2D line on this parametric (U, V) space and compute its 3D parametric curve. Depending on the line definition, results are as follows:</p>
+<p>假设您在此参数化（U，V）空间上创建一条二维线，并计算其三维参数化曲线。根据线定义，结果如下：</p>
+<div class="table-container"><table>
+<thead>
+<tr>
+<th>Case</th>
+<th>Parametric Equation 参数化方程式</th>
+<th>Parametric Curve 参数化曲线</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>U = 0</td>
+<td>P(V) = O + V * zDir</td>
+<td>Line parallel to the Z direction<br>平行于Z方向的线</td>
+</tr>
+<tr>
+<td>V = 0</td>
+<td>P(U) = O + R * (cos(U) * xDir + sin(U) * yDir)</td>
+<td>Circle parallel to the (O, X, Y) plane<br>平行于（O，X，Y）平面的圆</td>
+</tr>
+<tr>
+<td>U != 0 V != 0</td>
+<td>P(U, V) = O + R * (cos(U) * xDir + sin(U) * yDir) + V * zDir</td>
+<td>Helicoidal curve describing the evolution of height and angle on the cylinder<br>描述圆柱体高度和角度演变的螺旋曲线</td>
+</tr>
+</tbody>
+</table></div>
+<p>The helicoidal curve type is exactly what you need. On the neck’s surface, the evolution laws of this curve will be:</p>
+<ul>
+<li>In V parameter: between 0 and myHeighNeck for the height description</li>
+<li>In U parameter: between 0 and 2PI for the angle description. But, since a cylindrical surface is U periodic, you can decide to extend this angle evolution to 4PI as shown in the following drawing:</li>
+</ul>
+<p>螺旋曲线类型正是您所需要的。在颈部表面上，该曲线的演化规律为：</p>
+<ul>
+<li>在V参数中：高度描述在0和myHeighNeck之间</li>
+<li>在U参数中：角度描述在0和2PI之间。但是，由于圆柱表面是U周期性的，您可以决定将此角度演变扩展到4PI，如下图所示：</li>
+</ul>
+<p>In this (U, V) parametric space, you will create a local (X, Y) coordinate system to position the curves to be created. This coordinate system will be defined with:</p>
+<ul>
+<li>A center located in the middle of the neck’s cylinder parametric space at (2*PI, myNeckHeight / 2) in U, V coordinates.</li>
+<li>A X direction defined with the (2*PI, myNeckHeight/4) vector in U, V coordinates, so that the curves occupy half of the neck’s surfaces.</li>
+</ul>
+<p>在这个（U，V）参数化空间中，您将创建一个局部（X，Y）坐标系来定位要创建的曲线。该坐标系将定义为：</p>
+<ul>
+<li>位于颈部圆柱体参数化空间中间的中心，位于U、V坐标下的（2*PI，myNeckHeight/2）处。</li>
+<li>用U、V坐标中的（2*PI，myNeckHeight/4）向量定义的X方向，以便曲线占据颈部曲面的一半。</li>
+</ul>
+<p>To use 2D primitive geometry types of Open CASCADE Technology for defining a point and a coordinate system, you will once again instantiate classes from gp:</p>
+<ul>
+<li>To define a 2D point from its X and Y coordinates, use the gp_Pnt2d class.</li>
+<li>To define a 2D direction (unit vector) from its X and Y coordinates, use the gp_Dir2d class. The coordinates will automatically be normalized.</li>
+<li>To define a 2D right-handed coordinate system, use the gp_Ax2d class, which is computed from a point (origin of the coordinate system) and a direction - the X direction of the coordinate system. The Y direction will be automatically computed.</li>
+</ul>
+<p>要使用OpenCASCADE技术的2D基本几何类型来定义点和坐标系，您将再次从gp实例化类：</p>
+<ul>
+<li>要从X和Y坐标定义二维点，请使用gp_Pnt2d类。</li>
+<li>要从X和Y坐标定义二维方向（单位向量），请使用gp_Dir2d类。坐标将自动标准化。</li>
+<li>要定义二维右手坐标系，请使用gp_Ax2d类，该类是从一个点（坐标系的原点）和一个方向（坐标系X方向）计算的。将自动计算Y方向。</li>
+</ul>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">gp_Pnt2d <span class="title">aPnt</span><span class="params">(<span class="number">2.</span> * M_PI, myNeckHeight / <span class="number">2.</span>)</span></span>;</span><br><span class="line"><span class="function">gp_Dir2d <span class="title">aDir</span><span class="params">(<span class="number">2.</span> * M_PI, myNeckHeight / <span class="number">4.</span>)</span></span>;</span><br><span class="line"><span class="function">gp_Ax2d <span class="title">anAx2d</span><span class="params">(aPnt, aDir)</span></span>;</span><br></pre></td></tr></table></div></figure>
+<p>You will now define the curves. As previously mentioned, these thread profiles are computed on two cylindrical surfaces. In the following figure, curves on the left define the base (on aCyl1 surface) and the curves on the right define the top of the thread’s shape (on aCyl2 surface).</p>
+<p>现在将定义曲线。如前所述，这些螺纹轮廓是在两个圆柱表面上计算的。在下图中，左侧的曲线定义了底部（在aCyl1曲面上），右侧的曲线定义螺纹形状的顶部（在aCtyl2曲面上）。</p>
+<p>You have already used the Geom package to define 3D geometric entities. For 2D, you will use the Geom2d package. As for Geom, all geometries are parameterized. For example, a Geom2d_Ellipse ellipse is defined from:</p>
+<ul>
+<li>a coordinate system whose origin is the ellipse center;</li>
+<li>a major radius on the major axis defined by the X direction of the coordinate system;</li>
+<li>a minor radius on the minor axis defined by the Y direction of the coordinate system.</li>
+</ul>
+<p>您已经使用Geom包定义了三维几何图元。对于2D，您将使用Geom2d包。对于Geom，所有几何图形都是参数化的。例如，Geom2d_Ellipse椭圆的定义如下：</p>
+<ul>
+<li>原点为椭圆中心的坐标系；</li>
+<li>由坐标系的X方向限定的长轴上的主半径；</li>
+<li>由坐标系的Y方向定义的短轴上的短半径。</li>
+</ul>
+<p>Supposing that:</p>
+<ul>
+<li>Both ellipses have the same major radius of 2*PI,</li>
+<li>Minor radius of the first ellipse is myNeckHeight / 10,</li>
+<li>And the minor radius value of the second ellipse is a fourth of the first one,</li>
+</ul>
+<p>假设：</p>
+<ul>
+<li>两个椭圆具有相同的主半径2*PI，</li>
+<li>第一个椭圆的小半径是myNeckHeight/10，</li>
+<li>第二个椭圆的小半径值是第一个椭圆的四分之一，</li>
+</ul>
+<p>Your ellipses are defined as follows:</p>
+<p>椭圆的定义如下：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Standard_Real aMajor = <span class="number">2.</span> * M_PI;</span><br><span class="line">Standard_Real aMinor = myNeckHeight / <span class="number">10</span>;</span><br><span class="line"><span class="built_in">Handle</span>(Geom2d_Ellipse) anEllipse1 = <span class="keyword">new</span> <span class="built_in">Geom2d_Ellipse</span>(anAx2d, aMajor, aMinor);</span><br><span class="line"><span class="built_in">Handle</span>(Geom2d_Ellipse) anEllipse2 = <span class="keyword">new</span> <span class="built_in">Geom2d_Ellipse</span>(anAx2d, aMajor, aMinor / <span class="number">4</span>);</span><br></pre></td></tr></table></div></figure>
+<p>To describe portions of curves for the arcs drawn above, you define Geom2d_TrimmedCurve trimmed curves out of the created ellipses and two parameters to limit them. As the parametric equation of an ellipse is P(U) = O + (MajorRadius * cos(U) * XDirection) + (MinorRadius * sin(U) * YDirection), the ellipses need to be limited between 0 and M_PI.</p>
+<p>若要描述上面绘制的圆弧的曲线部分，请从创建的椭圆中定义Geom2d_TrimedCurve修剪曲线和两个参数来限制它们。由于椭圆的参数方程为P（U）=O+（MajorRadius*cos（U）<em>XDirection）+（MinorRadius</em>sin（U）*YDirection），椭圆需要限制在0和M_PI之间。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Handle</span>(Geom2d_TrimmedCurve) anArc1 = <span class="keyword">new</span> <span class="built_in">Geom2d_TrimmedCurve</span>(anEllipse1, <span class="number">0</span>, M_PI);</span><br><span class="line"><span class="built_in">Handle</span>(Geom2d_TrimmedCurve) anArc2 = <span class="keyword">new</span> <span class="built_in">Geom2d_TrimmedCurve</span>(anEllipse2, <span class="number">0</span>, M_PI);</span><br></pre></td></tr></table></div></figure>
+<p>The last step consists in defining the segment, which is the same for the two profiles: a line limited by the first and the last point of one of the arcs. To access the point corresponding to the parameter of a curve or a surface, you use the Value or D0 method (meaning 0th derivative), D1 method is for the first derivative, D2 for the second one.</p>
+<p>最后一步是定义线段，这对于两个轮廓是相同的：一条由其中一个圆弧的第一点和最后一点限定的线。要访问与曲线或曲面的参数对应的点，可以使用值或D0方法（表示0阶导数），D1方法用于一阶导数，D2方法用于二阶导数。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gp_Pnt2d anEllipsePnt1 = anEllipse1-&gt;<span class="built_in">Value</span>(<span class="number">0</span>);</span><br><span class="line">gp_Pnt2d anEllipsePnt2;</span><br><span class="line">anEllipse1-&gt;<span class="built_in">D0</span>(M_PI, anEllipsePnt2);</span><br></pre></td></tr></table></div></figure>
+<p>When creating the bottle’s profile, you used classes from the GC package, providing algorithms to create elementary geometries. In 2D geometry, this kind of algorithms is found in the GCE2d package. Class names and behaviors are similar to those in GC. For example, to create a 2D segment out of two points:</p>
+<p>在创建瓶子的配置文件时，您使用了GC包中的类，提供了创建基本几何图形的算法。在2D几何中，这种算法可以在GCE2d包中找到。类名和行为与GC中的类似。例如，要从两点创建二维线段：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Handle</span>(Geom2d_TrimmedCurve) aSegment = <span class="built_in">GCE2d_MakeSegment</span>(anEllipsePnt1, anEllipsePnt2);</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="building-edges-and-wires-建筑边缘和导线"   >
+          <a href="#building-edges-and-wires-建筑边缘和导线" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#building-edges-and-wires-建筑边缘和导线"></a> Building Edges and Wires 建筑边缘和导线</h4>
+      
+<p>As you did when creating the base profile of the bottle, you can now:</p>
+<ul>
+<li>compute the edges of the neck’s threading.</li>
+<li>compute two wires out of these edges.</li>
+</ul>
+<p>与创建瓶子的基础轮廓时一样，现在可以：</p>
+<ul>
+<li>计算颈部螺纹的边缘。</li>
+<li>从这些边中计算两条线。</li>
+</ul>
+<p>Previously, you have built:</p>
+<ul>
+<li>two cylindrical surfaces of the threading</li>
+<li>three 2D curves defining the base geometry of the threading</li>
+</ul>
+<p>以前，您已经构建了：</p>
+<ul>
+<li>螺纹的两个圆柱形表面</li>
+<li>定义螺纹基本几何图形的三条2D曲线</li>
+</ul>
+<p>To compute the edges out of these curves, once again use the BRepBuilderAPI_MakeEdge class. One of its constructors allows you to build an edge out of a curve described in the 2D parametric space of a surface.</p>
+<p>要计算这些曲线的边，请再次使用BRepBuilderAPI_MakeEdge类。它的一个构造函数允许您从曲面的二维参数化空间中描述的曲线构建边。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Edge anEdge1OnSurf1 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(anArc1, aCyl1);</span><br><span class="line">TopoDS_Edge anEdge2OnSurf1 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aSegment, aCyl1);</span><br><span class="line">TopoDS_Edge anEdge1OnSurf2 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(anArc2, aCyl2);</span><br><span class="line">TopoDS_Edge anEdge2OnSurf2 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aSegment, aCyl2);</span><br></pre></td></tr></table></div></figure>
+<p>Now, you can create the two profiles of the threading, lying on each surface.</p>
+<p>现在，您可以在每个曲面上创建螺纹的两个轮廓。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Wire threadingWire1 = <span class="built_in">BRepBuilderAPI_MakeWire</span>(anEdge1OnSurf1, anEdge2OnSurf1);</span><br><span class="line">TopoDS_Wire threadingWire2 = <span class="built_in">BRepBuilderAPI_MakeWire</span>(anEdge1OnSurf2, anEdge2OnSurf2);</span><br></pre></td></tr></table></div></figure>
+<p>Remember that these wires were built out of a surface and 2D curves. One important data item is missing as far as these wires are concerned: there is no information on the 3D curves. Fortunately, you do not need to compute this yourself, which can be a difficult task since the mathematics can be quite complex. When a shape contains all the necessary information except 3D curves, Open CASCADE Technology provides a tool to build them automatically. In the BRepLib tool package, you can use the BuildCurves3d method to compute 3D curves for all the edges of a shape.</p>
+<p>请记住，这些导线是由曲面和二维曲线构建的。就这些导线而言，缺少一个重要的数据项：没有关于三维曲线的信息。幸运的是，你不需要自己计算，这可能是一项困难的任务，因为数学可能非常复杂。当形状包含除三维曲线之外的所有必要信息时，Open CASCADE Technology提供了一种工具来自动构建它们。在BRepLib工具包中，可以使用BuildCurves3d方法计算形状所有边的三维曲线。</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BRepLib::<span class="built_in">BuildCurves3d</span>(threadingWire1);</span><br><span class="line">BRepLib::<span class="built_in">BuildCurves3d</span>(threadingWire2);</span><br></pre></td></tr></table></div></figure>
+
+        <h4 id="creating-threading-创建线程"   >
+          <a href="#creating-threading-创建线程" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#creating-threading-创建线程"></a> Creating Threading 创建线程</h4>
+      
+<p>You have computed the wires of the threading. The threading will be a solid shape, so you must now compute the faces of the wires, the faces allowing you to join the wires, the shell out of these faces and then the solid itself. This can be a lengthy operation. There are always faster ways to build a solid when the base topology is defined. You would like to create a solid out of two wires. Open CASCADE Technology provides a quick way to do this by building a loft: a shell or a solid passing through a set of wires in a given sequence.</p>
+<p>The loft function is implemented in the BRepOffsetAPI_ThruSections class, which you use as follows:</p>
+<p>您已经计算了螺纹的导线。螺纹将是一个实心形状，因此现在必须计算导线的面、允许连接导线的面以及这些面的壳，然后计算实体本身。这可能是一个漫长的操作。定义基本拓扑时，总是有更快的方法来构建实体。您希望使用两根导线创建实体。OpenCASCADE技术提供了一种快速的方法来实现这一点，方法是建立一个阁楼：一个外壳或一个实体以给定的顺序穿过一组电线。</p>
+<p>loft函数在BRpOffsetAPI_ThruSections类中实现，使用方法如下：</p>
+<ul>
+<li>
+<p>Initialize the algorithm by creating an instance of the class. The first parameter of this constructor must be specified if you want to create a solid. By default, BRepOffsetAPI_ThruSections builds a shell.</p>
+</li>
+<li>
+<p>Add the successive wires using the AddWire method.</p>
+</li>
+<li>
+<p>Use the CheckCompatibility method to activate (or deactivate) the option that checks whether the wires have the same number of edges. In this case, wires have two edges each, so you can deactivate this option.</p>
+</li>
+<li>
+<p>Ask for the resulting loft shape with the Shape method.</p>
+</li>
+<li>
+<p>通过创建类的实例来初始化算法。如果要创建实体，必须指定此构造函数的第一个参数。默认情况下，BRepOffsetAPI_ThruSections构建外壳。</p>
+</li>
+<li>
+<p>使用AddWire方法添加连续的导线。</p>
+</li>
+<li>
+<p>使用CheckCompatibility方法激活（或停用）检查导线是否具有相同数量的边的选项。在这种情况下，导线各有两条边，因此可以禁用此选项。</p>
+</li>
+<li>
+<p>使用shape方法询问生成的放样形状。</p>
+</li>
+</ul>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">BRepOffsetAPI_ThruSections <span class="title">aTool</span><span class="params">(Standard_True)</span></span>;</span><br><span class="line">aTool.<span class="built_in">AddWire</span>(threadingWire1); aTool.<span class="built_in">AddWire</span>(threadingWire2);</span><br><span class="line">aTool.<span class="built_in">CheckCompatibility</span>(Standard_False);</span><br><span class="line">TopoDS_Shape myThreading = aTool.<span class="built_in">Shape</span>();</span><br></pre></td></tr></table></div></figure>
+
+        <h3 id="building-the-resulting-compound-构建生成的化合物"   >
+          <a href="#building-the-resulting-compound-构建生成的化合物" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#building-the-resulting-compound-构建生成的化合物"></a> Building the Resulting Compound 构建生成的化合物</h3>
+      
+<p>You are almost done building the bottle. Use the TopoDS_Compound and BRep_Builder classes to build single shape from myBody and myThreading:</p>
+<p>你几乎完成了瓶子的制作。使用TopoDS_Compound和BRep_Builder类从myBody和myThreading构建单个形状：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TopoDS_Compound aRes;</span><br><span class="line">BRep_Builder aBuilder;</span><br><span class="line">aBuilder.<span class="built_in">MakeCompound</span> (aRes);</span><br><span class="line">aBuilder.<span class="built_in">Add</span> (aRes, myBody);</span><br><span class="line">aBuilder.<span class="built_in">Add</span> (aRes, myThreading);</span><br></pre></td></tr></table></div></figure>
+<p>Congratulations! Your bottle is complete. Here is the result snapshot of the Tutorial application:</p>
+<p>祝贺你的瓶子是完整的。以下是Tutorial应用程序的结果快照：</p>
+<p>We hope that this tutorial has provided you with a feel for the industrial strength power of Open CASCADE Technology. If you want to know more and develop major projects using Open CASCADE Technology, we invite you to study our training, support, and consulting services on our site at <span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.opencascade.com/content/technology-support" >https://www.opencascade.com/content/technology-support</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>. Our professional services can maximize the power of your Open CASCADE Technology applications.</p>
+<p>我们希望本教程能让您感受到开放式CASCADE技术的工业实力。如果您想了解更多信息并使用开放式CASCADE技术开发主要项目，我们邀请您在我们的网站上学习我们的培训、支持和咨询服务，网址为<span class="exturl"><a class="exturl__link"   target="_blank" rel="noopener" href="https://www.opencascade.com/content/technology-support.%E6%88%91%E4%BB%AC%E7%9A%84%E4%B8%93%E4%B8%9A%E6%9C%8D%E5%8A%A1%E5%8F%AF%E4%BB%A5%E6%9C%80%E5%A4%A7%E9%99%90%E5%BA%A6%E5%9C%B0%E5%8F%91%E6%8C%A5%E5%BC%80%E6%94%BE%E5%BC%8FCASCADE%E6%8A%80%E6%9C%AF%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%A8%81%E5%8A%9B%E3%80%82" >https://www.opencascade.com/content/technology-support.我们的专业服务可以最大限度地发挥开放式CASCADE技术应用程序的威力。</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+
+        <h3 id="appendix-附录"   >
+          <a href="#appendix-附录" class="heading-link"><i class="fas fa-link"></i></a><a class="markdownIt-Anchor" href="#appendix-附录"></a> Appendix 附录</h3>
+      
+<p>Complete definition of MakeBottle function (defined in the file src/MakeBottle.cxx of the Tutorial):</p>
+<p>MakeBottle函数的完整定义（在教程的src/MakeBottle.cxx文件中定义）：</p>
+<figure class="highlight c++"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">TopoDS_Shape <span class="title">MakeBottle</span><span class="params">(<span class="type">const</span> Standard_Real myWidth, <span class="type">const</span> Standard_Real myHeight,</span></span></span><br><span class="line"><span class="params"><span class="function">                        <span class="type">const</span> Standard_Real myThickness)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Profile : Define Support Points</span></span><br><span class="line">    <span class="function">gp_Pnt <span class="title">aPnt1</span><span class="params">(-myWidth / <span class="number">2.</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>;        </span><br><span class="line">    <span class="function">gp_Pnt <span class="title">aPnt2</span><span class="params">(-myWidth / <span class="number">2.</span>, -myThickness / <span class="number">4.</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="function">gp_Pnt <span class="title">aPnt3</span><span class="params">(<span class="number">0</span>, -myThickness / <span class="number">2.</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="function">gp_Pnt <span class="title">aPnt4</span><span class="params">(myWidth / <span class="number">2.</span>, -myThickness / <span class="number">4.</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="function">gp_Pnt <span class="title">aPnt5</span><span class="params">(myWidth / <span class="number">2.</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Profile : Define the Geometry</span></span><br><span class="line">    <span class="built_in">Handle</span>(Geom_TrimmedCurve) anArcOfCircle = <span class="built_in">GC_MakeArcOfCircle</span>(aPnt2,aPnt3,aPnt4);</span><br><span class="line">    <span class="built_in">Handle</span>(Geom_TrimmedCurve) aSegment1 = <span class="built_in">GC_MakeSegment</span>(aPnt1, aPnt2);</span><br><span class="line">    <span class="built_in">Handle</span>(Geom_TrimmedCurve) aSegment2 = <span class="built_in">GC_MakeSegment</span>(aPnt4, aPnt5);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Profile : Define the Topology</span></span><br><span class="line">    TopoDS_Edge anEdge1 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aSegment1);</span><br><span class="line">    TopoDS_Edge anEdge2 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(anArcOfCircle);</span><br><span class="line">    TopoDS_Edge anEdge3 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aSegment2);</span><br><span class="line">    TopoDS_Wire aWire  = <span class="built_in">BRepBuilderAPI_MakeWire</span>(anEdge1, anEdge2, anEdge3);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Complete Profile</span></span><br><span class="line">    gp_Ax1 xAxis = gp::<span class="built_in">OX</span>();</span><br><span class="line">    gp_Trsf aTrsf;</span><br><span class="line"> </span><br><span class="line">    aTrsf.<span class="built_in">SetMirror</span>(xAxis);</span><br><span class="line">    <span class="function">BRepBuilderAPI_Transform <span class="title">aBRepTrsf</span><span class="params">(aWire, aTrsf)</span></span>;</span><br><span class="line">    TopoDS_Shape aMirroredShape = aBRepTrsf.<span class="built_in">Shape</span>();</span><br><span class="line">    TopoDS_Wire aMirroredWire = TopoDS::<span class="built_in">Wire</span>(aMirroredShape);</span><br><span class="line"> </span><br><span class="line">    BRepBuilderAPI_MakeWire mkWire;</span><br><span class="line">    mkWire.<span class="built_in">Add</span>(aWire);</span><br><span class="line">    mkWire.<span class="built_in">Add</span>(aMirroredWire);</span><br><span class="line">    TopoDS_Wire myWireProfile = mkWire.<span class="built_in">Wire</span>();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Body : Prism the Profile</span></span><br><span class="line">    TopoDS_Face myFaceProfile = <span class="built_in">BRepBuilderAPI_MakeFace</span>(myWireProfile);</span><br><span class="line">    <span class="function">gp_Vec <span class="title">aPrismVec</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, myHeight)</span></span>;</span><br><span class="line">    TopoDS_Shape myBody = <span class="built_in">BRepPrimAPI_MakePrism</span>(myFaceProfile, aPrismVec);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Body : Apply Fillets</span></span><br><span class="line">    <span class="function">BRepFilletAPI_MakeFillet <span class="title">mkFillet</span><span class="params">(myBody)</span></span>;</span><br><span class="line">    <span class="function">TopExp_Explorer <span class="title">anEdgeExplorer</span><span class="params">(myBody, TopAbs_EDGE)</span></span>;</span><br><span class="line">    <span class="keyword">while</span>(anEdgeExplorer.<span class="built_in">More</span>())&#123;</span><br><span class="line">        TopoDS_Edge anEdge = TopoDS::<span class="built_in">Edge</span>(anEdgeExplorer.<span class="built_in">Current</span>());</span><br><span class="line">        <span class="comment">//Add edge to fillet algorithm</span></span><br><span class="line">        mkFillet.<span class="built_in">Add</span>(myThickness / <span class="number">12.</span>, anEdge);</span><br><span class="line">        anEdgeExplorer.<span class="built_in">Next</span>();</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    myBody = mkFillet.<span class="built_in">Shape</span>();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Body : Add the Neck</span></span><br><span class="line">    <span class="function">gp_Pnt <span class="title">neckLocation</span><span class="params">(<span class="number">0</span>, <span class="number">0</span>, myHeight)</span></span>;</span><br><span class="line">    gp_Dir neckAxis = gp::<span class="built_in">DZ</span>();</span><br><span class="line">    <span class="function">gp_Ax2 <span class="title">neckAx2</span><span class="params">(neckLocation, neckAxis)</span></span>;</span><br><span class="line"> </span><br><span class="line">    Standard_Real myNeckRadius = myThickness / <span class="number">4.</span>;</span><br><span class="line">    Standard_Real myNeckHeight = myHeight / <span class="number">10.</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="function">BRepPrimAPI_MakeCylinder <span class="title">MKCylinder</span><span class="params">(neckAx2, myNeckRadius, myNeckHeight)</span></span>;</span><br><span class="line">    TopoDS_Shape myNeck = MKCylinder.<span class="built_in">Shape</span>();</span><br><span class="line"> </span><br><span class="line">    myBody = <span class="built_in">BRepAlgoAPI_Fuse</span>(myBody, myNeck);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Body : Create a Hollowed Solid</span></span><br><span class="line">    TopoDS_Face   faceToRemove;</span><br><span class="line">    Standard_Real zMax = <span class="number">-1</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">for</span>(TopExp_Explorer <span class="built_in">aFaceExplorer</span>(myBody, TopAbs_FACE); aFaceExplorer.<span class="built_in">More</span>(); aFaceExplorer.<span class="built_in">Next</span>())&#123;</span><br><span class="line">        TopoDS_Face aFace = TopoDS::<span class="built_in">Face</span>(aFaceExplorer.<span class="built_in">Current</span>());</span><br><span class="line">        <span class="comment">// Check if &lt;aFace&gt; is the top face of the bottle&#x27;s neck </span></span><br><span class="line">        <span class="built_in">Handle</span>(Geom_Surface) aSurface = BRep_Tool::<span class="built_in">Surface</span>(aFace);</span><br><span class="line">        <span class="keyword">if</span>(aSurface-&gt;<span class="built_in">DynamicType</span>() == <span class="built_in">STANDARD_TYPE</span>(Geom_Plane))&#123;</span><br><span class="line">            <span class="built_in">Handle</span>(Geom_Plane) aPlane = <span class="built_in">Handle</span>(Geom_Plane)::<span class="built_in">DownCast</span>(aSurface);</span><br><span class="line">            gp_Pnt aPnt = aPlane-&gt;<span class="built_in">Location</span>();</span><br><span class="line">            Standard_Real aZ   = aPnt.<span class="built_in">Z</span>();</span><br><span class="line">            <span class="keyword">if</span>(aZ &gt; zMax)&#123;</span><br><span class="line">                zMax = aZ;</span><br><span class="line">                faceToRemove = aFace;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    TopTools_ListOfShape facesToRemove;</span><br><span class="line">    facesToRemove.<span class="built_in">Append</span>(faceToRemove);</span><br><span class="line">    BRepOffsetAPI_MakeThickSolid aSolidMaker;</span><br><span class="line">    aSolidMaker.<span class="built_in">MakeThickSolidByJoin</span>(myBody, facesToRemove, -myThickness / <span class="number">50</span>, <span class="number">1.e-3</span>);</span><br><span class="line">    myBody = aSolidMaker.<span class="built_in">Shape</span>();</span><br><span class="line">    <span class="comment">// Threading : Create Surfaces</span></span><br><span class="line">    <span class="built_in">Handle</span>(Geom_CylindricalSurface) aCyl1 = <span class="keyword">new</span> <span class="built_in">Geom_CylindricalSurface</span>(neckAx2, myNeckRadius * <span class="number">0.99</span>);</span><br><span class="line">    <span class="built_in">Handle</span>(Geom_CylindricalSurface) aCyl2 = <span class="keyword">new</span> <span class="built_in">Geom_CylindricalSurface</span>(neckAx2, myNeckRadius * <span class="number">1.05</span>);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Threading : Define 2D Curves</span></span><br><span class="line">    <span class="function">gp_Pnt2d <span class="title">aPnt</span><span class="params">(<span class="number">2.</span> * M_PI, myNeckHeight / <span class="number">2.</span>)</span></span>;</span><br><span class="line">    <span class="function">gp_Dir2d <span class="title">aDir</span><span class="params">(<span class="number">2.</span> * M_PI, myNeckHeight / <span class="number">4.</span>)</span></span>;</span><br><span class="line">    <span class="function">gp_Ax2d <span class="title">anAx2d</span><span class="params">(aPnt, aDir)</span></span>;</span><br><span class="line"> </span><br><span class="line">    Standard_Real aMajor = <span class="number">2.</span> * M_PI;</span><br><span class="line">    Standard_Real aMinor = myNeckHeight / <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">Handle</span>(Geom2d_Ellipse) anEllipse1 = <span class="keyword">new</span> <span class="built_in">Geom2d_Ellipse</span>(anAx2d, aMajor, aMinor);</span><br><span class="line">    <span class="built_in">Handle</span>(Geom2d_Ellipse) anEllipse2 = <span class="keyword">new</span> <span class="built_in">Geom2d_Ellipse</span>(anAx2d, aMajor, aMinor / <span class="number">4</span>);</span><br><span class="line">    <span class="built_in">Handle</span>(Geom2d_TrimmedCurve) anArc1 = <span class="keyword">new</span> <span class="built_in">Geom2d_TrimmedCurve</span>(anEllipse1, <span class="number">0</span>, M_PI);</span><br><span class="line">    <span class="built_in">Handle</span>(Geom2d_TrimmedCurve) anArc2 = <span class="keyword">new</span> <span class="built_in">Geom2d_TrimmedCurve</span>(anEllipse2, <span class="number">0</span>, M_PI);</span><br><span class="line">    gp_Pnt2d anEllipsePnt1 = anEllipse1-&gt;<span class="built_in">Value</span>(<span class="number">0</span>);</span><br><span class="line">    gp_Pnt2d anEllipsePnt2 = anEllipse1-&gt;<span class="built_in">Value</span>(M_PI);</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">Handle</span>(Geom2d_TrimmedCurve) aSegment = <span class="built_in">GCE2d_MakeSegment</span>(anEllipsePnt1, anEllipsePnt2);</span><br><span class="line">    <span class="comment">// Threading : Build Edges and Wires</span></span><br><span class="line">    TopoDS_Edge anEdge1OnSurf1 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(anArc1, aCyl1);</span><br><span class="line">    TopoDS_Edge anEdge2OnSurf1 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aSegment, aCyl1);</span><br><span class="line">    TopoDS_Edge anEdge1OnSurf2 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(anArc2, aCyl2);</span><br><span class="line">    TopoDS_Edge anEdge2OnSurf2 = <span class="built_in">BRepBuilderAPI_MakeEdge</span>(aSegment, aCyl2);</span><br><span class="line">    TopoDS_Wire threadingWire1 = <span class="built_in">BRepBuilderAPI_MakeWire</span>(anEdge1OnSurf1, anEdge2OnSurf1);</span><br><span class="line">    TopoDS_Wire threadingWire2 = <span class="built_in">BRepBuilderAPI_MakeWire</span>(anEdge1OnSurf2, anEdge2OnSurf2);</span><br><span class="line">    BRepLib::<span class="built_in">BuildCurves3d</span>(threadingWire1);</span><br><span class="line">    BRepLib::<span class="built_in">BuildCurves3d</span>(threadingWire2);</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Create Threading </span></span><br><span class="line">    <span class="function">BRepOffsetAPI_ThruSections <span class="title">aTool</span><span class="params">(Standard_True)</span></span>;</span><br><span class="line">    aTool.<span class="built_in">AddWire</span>(threadingWire1);</span><br><span class="line">    aTool.<span class="built_in">AddWire</span>(threadingWire2);</span><br><span class="line">    aTool.<span class="built_in">CheckCompatibility</span>(Standard_False);</span><br><span class="line"> </span><br><span class="line">    TopoDS_Shape myThreading = aTool.<span class="built_in">Shape</span>();</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Building the Resulting Compound </span></span><br><span class="line">    TopoDS_Compound aRes;</span><br><span class="line">    BRep_Builder aBuilder;</span><br><span class="line">    aBuilder.<span class="built_in">MakeCompound</span> (aRes);</span><br><span class="line">    aBuilder.<span class="built_in">Add</span> (aRes, myBody);</span><br><span class="line">    aBuilder.<span class="built_in">Add</span> (aRes, myThreading);</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> aRes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="http://hipposox.github.io">HippoSoX</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="http://hipposox.github.io/2023/01/14/OCCT-Tutorials-and-Demos-03-Novice-Guide/">http://hipposox.github.io/2023/01/14/OCCT-Tutorials-and-Demos-03-Novice-Guide/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://hipposox.github.io/tags/Opencascade/">Opencascade</a></span><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="http://hipposox.github.io/tags/OCCT/">OCCT</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2023/01/12/LFS-V-%E7%B3%BB%E7%BB%9F%E9%85%8D%E7%BD%AE/"><span class="paginator-prev__text">LFS-V-系统配置</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#tutorials-and-demos-03"><span class="toc-number">1.</span> <span class="toc-text">
+           Tutorials and Demos 03</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#modeling-bottle-tutorials"><span class="toc-number">1.1.</span> <span class="toc-text">
+           Modeling: Bottle Tutorials</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#overview-%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">
+           Overview 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#prerequisites-%E5%85%88%E5%86%B3%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">
+           Prerequisites 先决条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#the-model-%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">
+           The Model 模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#model-specifications-%E5%9E%8B%E5%8F%B7%E8%A7%84%E6%A0%BC"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">
+           Model Specifications 型号规格</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#building-the-profile"><span class="toc-number">1.1.2.</span> <span class="toc-text">
+           Building the Profile</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#defining-support-points-%E5%AE%9A%E4%B9%89%E6%94%AF%E6%8C%81%E7%82%B9"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">
+           Defining Support Points 定义支持点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#profile-defining-the-geometry-%E7%BA%B5%E6%96%AD%E9%9D%A2%E5%AE%9A%E4%B9%89%E5%87%A0%E4%BD%95%E5%9B%BE%E5%BD%A2"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">
+           Profile: Defining the Geometry 纵断面：定义几何图形</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#profile-defining-the-topology"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">
+           Profile: Defining the Topology</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#profile-completing-the-profile-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%8C%E6%88%90%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">
+           Profile: Completing the Profile 配置文件：完成配置文件</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#building-the-body-%E6%9E%84%E5%BB%BA%E8%BA%AB%E4%BD%93"><span class="toc-number">1.1.3.</span> <span class="toc-text">
+           Building the Body 构建身体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#prism-the-profile-%E6%A3%B1%E9%95%9C%E8%BD%AE%E5%BB%93"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">
+           Prism the Profile 棱镜轮廓</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#applying-fillets-%E5%BA%94%E7%94%A8%E5%9C%86%E8%A7%92"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">
+           Applying Fillets 应用圆角</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#adding-the-neck-%E6%B7%BB%E5%8A%A0%E9%A2%88%E9%83%A8"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">
+           Adding the Neck 添加颈部</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#creating-a-hollowed-solid-%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%BF%83%E5%AE%9E%E4%BD%93"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">
+           Creating a Hollowed Solid 创建空心实体</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#building-the-threading-%E6%9E%84%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.1.4.</span> <span class="toc-text">
+           Building the Threading 构建线程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#creating-surfaces-%E5%88%9B%E5%BB%BA%E6%9B%B2%E9%9D%A2"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">
+           Creating Surfaces 创建曲面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#defining-2d-curves-%E5%AE%9A%E4%B9%89%E4%BA%8C%E7%BB%B4%E6%9B%B2%E7%BA%BF"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">
+           Defining 2D Curves 定义二维曲线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#building-edges-and-wires-%E5%BB%BA%E7%AD%91%E8%BE%B9%E7%BC%98%E5%92%8C%E5%AF%BC%E7%BA%BF"><span class="toc-number">1.1.4.3.</span> <span class="toc-text">
+           Building Edges and Wires 建筑边缘和导线</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#creating-threading-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.1.4.4.</span> <span class="toc-text">
+           Creating Threading 创建线程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#building-the-resulting-compound-%E6%9E%84%E5%BB%BA%E7%94%9F%E6%88%90%E7%9A%84%E5%8C%96%E5%90%88%E7%89%A9"><span class="toc-number">1.1.5.</span> <span class="toc-text">
+           Building the Resulting Compound 构建生成的化合物</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#appendix-%E9%99%84%E5%BD%95"><span class="toc-number">1.1.6.</span> <span class="toc-text">
+           Appendix 附录</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/stun-logo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">motto</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">19</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">6</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">14</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1449790718&auto=1&height=66"></iframe></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2023</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>HippoSoX</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v5.4.2</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.8.0</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script><script src="/js/utils.js?v=2.8.0"></script><script src="/js/stun-boot.js?v=2.8.0"></script><script src="/js/scroll.js?v=2.8.0"></script><script src="/js/header.js?v=2.8.0"></script><script src="/js/sidebar.js?v=2.8.0"></script></body></html>
